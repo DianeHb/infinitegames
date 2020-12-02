@@ -14,9 +14,9 @@ p "Destroy existing seeds"
 User.destroy_all
 Category.destroy_all
 Mechanic.destroy_all
-Game.destroy_all
-Review.destroy_all
-GameSession.destroy_all
+# Game.destroy_all
+# Review.destroy_all
+# GameSession.destroy_all
 
 #*********************USERS*************************
 p "Seeds for Users"
@@ -25,8 +25,8 @@ p "Seeds for Users"
 julien = User.create!(
   username: 'Beliar44',
   first_name: 'Julien',
-  last_name: 'Devautour'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/beliar44"
+  last_name: 'Devautour',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/beliar44",
   email: 'julien@test.com',
   password: 'secret123456'
 )
@@ -34,8 +34,8 @@ julien = User.create!(
 nadia = User.create!(
   username: 'Nadia',
   first_name: 'Nadia',
-  last_name: 'Leteurtre'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/nadialet9"
+  last_name: 'Leteurtre',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/nadialet9",
   email: 'nadia@test.com',
   password: 'secret123456'
 )
@@ -43,8 +43,8 @@ nadia = User.create!(
 diane = User.create!(
   username: 'Diane',
   first_name: 'Diane',
-  last_name: 'Hubau'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/DianeHb"
+  last_name: 'Hubau',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/DianeHb",
   email: 'diane@test.com',
   password: 'secret123456'
 )
@@ -52,8 +52,8 @@ diane = User.create!(
 cecile = User.create!(
   username: 'Cécile',
   first_name: 'Cécile',
-  last_name: 'Veneziani'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/cveneziani"
+  last_name: 'Veneziani',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/cveneziani",
   email: 'cecile@test.com',
   password: 'secret123456'
 )
@@ -61,8 +61,8 @@ cecile = User.create!(
 nicolas = User.create!(
   username: 'Nicolas',
   first_name: 'Nicolas',
-  last_name: 'Filzi'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/nfilzi"
+  last_name: 'Filzi',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/nfilzi",
   email: 'nicolas@test.com',
   password: 'secret123456'
 )
@@ -70,17 +70,17 @@ nicolas = User.create!(
 seb = User.create!(
   username: 'Seb',
   first_name: 'Sébastien',
-  last_name: 'Saunier'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/ssaunier"
-  email: 'nicolas@test.com',
+  last_name: 'Saunier',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/ssaunier",
+  email: 'seb@test.com',
   password: 'secret123456'
 )
 
 nathan = User.create!(
   username: 'Nathan',
   first_name: 'Nathan',
-  last_name: 'Menard'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/NathanMenard"
+  last_name: 'Menard',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/NathanMenard",
   email: 'nathan@test.com',
   password: 'secret123456'
 )
@@ -88,8 +88,8 @@ nathan = User.create!(
 melanie = User.create!(
   username: 'Mélanie',
   first_name: 'Mélanie',
-  last_name: 'Rat'
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/???"
+  last_name: 'Rat',
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/MelRt",
   email: 'melanie@test.com',
   password: 'secret123456'
 )
