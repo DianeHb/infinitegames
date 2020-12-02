@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+h2, h1{
+  font-family: $headings-font-family;
+}
