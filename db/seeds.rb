@@ -20,6 +20,80 @@ GameSession.destroy_all
 
 #*********************USERS*************************
 p "Seeds for Users"
+
+
+julien = User.create!(
+  username: 'Beliar44',
+  first_name: 'Julien',
+  last_name: 'Devautour'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/beliar44"
+  email: 'julien@test.com',
+  password: 'secret123456'
+)
+
+nadia = User.create!(
+  username: 'Nadia',
+  first_name: 'Nadia',
+  last_name: 'Leteurtre'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/nadialet9"
+  email: 'nadia@test.com',
+  password: 'secret123456'
+)
+
+diane = User.create!(
+  username: 'Diane',
+  first_name: 'Diane',
+  last_name: 'Hubau'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/DianeHb"
+  email: 'diane@test.com',
+  password: 'secret123456'
+)
+
+cecile = User.create!(
+  username: 'Cécile',
+  first_name: 'Cécile',
+  last_name: 'Veneziani'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/cveneziani"
+  email: 'cecile@test.com',
+  password: 'secret123456'
+)
+
+nicolas = User.create!(
+  username: 'Nicolas',
+  first_name: 'Nicolas',
+  last_name: 'Filzi'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/nfilzi"
+  email: 'nicolas@test.com',
+  password: 'secret123456'
+)
+
+seb = User.create!(
+  username: 'Seb',
+  first_name: 'Sébastien',
+  last_name: 'Saunier'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/ssaunier"
+  email: 'nicolas@test.com',
+  password: 'secret123456'
+)
+
+nathan = User.create!(
+  username: 'Nathan',
+  first_name: 'Nathan',
+  last_name: 'Menard'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/NathanMenard"
+  email: 'nathan@test.com',
+  password: 'secret123456'
+)
+
+melanie = User.create!(
+  username: 'Mélanie',
+  first_name: 'Mélanie',
+  last_name: 'Rat'
+  avatar_url: "https://kitt.lewagon.com/placeholder/users/???"
+  email: 'melanie@test.com',
+  password: 'secret123456'
+)
+
 p "Seeds for users done!"
 
 #*********************CATEGORIES*************************
@@ -36,7 +110,7 @@ categories = data["categories"]
 categories.each do |category|
   Category.create!(
     name: category["name"],
-    id_api: category["id"]
+    boardgamesatlas_id: category["id"]
   )
 end
 p "Seeds for categories done!"
@@ -55,7 +129,7 @@ mechanics = data["mechanics"]
 mechanics.each do |mechanic|
   Mechanic.create!(
     name: mechanic["name"],
-    id_api: mechanic["id"]
+    boardgamesatlas_id: mechanic["id"]
   )
 end
 

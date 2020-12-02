@@ -3,14 +3,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :library_games, only: [:index, :show] do
+    collection do
+      get :lent
+    end
     member do
-      get :lend
       patch :lend
     end
     resources :game_sessions, only: [:index, :create]
   end
 
-  resource :searches, only: [:show]
+  resource :search, only: [:show]
 
   resources :games, only: [:index, :show] do
     resources :reviews, only: [:create]
