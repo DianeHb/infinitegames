@@ -1,0 +1,21 @@
+.btn-primary {
+  font-family:'Nerko One';
+  color: white;
+  background:$primary;
+  margin:3px;
+  padding: 8px 20px 12px 20px;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+  text-decoration:none;
+}
+
+.btn-secondary {
+  font-family:'Nerko One';
+  color:$primary;
+  background:$light-blue;
+  padding: 6px 20px 10px 20px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  border:solid;
+  text-decoration:none;
+}

@@ -1,1 +1,94 @@
 // Specific CSS for your home-page
+.hero {
+  background-image:url("homepage.png");
+  height: 70vh;
+  background-size:cover;
+  background-position: center;
+  padding: 75px 0;
+
+}
+
+.hero h1 {
+  margin-left: 70px;
+  margin-bottom:20px;
+}
+
+.hero a {
+  margin-left: 70px;
+}
+.hero h3 {
+  margin-left: 70px;
+  margin-bottom:30px;
+  font-family: "lato";
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top:40px;
+}
+
+.search{
+  background-color:$light-primary;
+  height: 400px;
+  padding-top:50px
+}
+
+.features {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom:50px;
+}
+.features p {
+  width:80%;
+}
+
+.highlight {
+  color: $primary;
+  font-weight: bold;
+}
+
+.search-title {
+  display: flex;
+  grid-gap: 16px;
+  justify-content: center;
+}
+
+.games-month {
+  text-align: center;
+  height: 500px;
+}
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .home-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .home-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .home-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .home-features {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .home-features {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
