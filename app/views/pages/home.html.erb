@@ -26,7 +26,7 @@
 
       <div class="feature">
         <%= image_tag("Homepage/stat.png", style: "height:200px;margin-bottom:20px;") %>
-        <p>You can <span class="highlight">see your session game statistics </span>for each game you have played.
+        <p>You can <span class="highlight"> see your session game statistics </span>for each game you have played.
         You will know who is the best to play, how many games you play in the year, ...  </p>
       </div>
     </div>
@@ -37,9 +37,25 @@
     <%= image_tag("dice-search.png") %>
     <h2>Find your ideal board game !</h2>
     <%= image_tag("dice-search.png") %>
-</div>
+  </div>
+  <%= render "shared/search" %>
 </div>
 <div class="games-month">
-<h2>Infinite Games of the month </h2>
-  <%= link_to "SEE ALL THE BOARD GAMES", games_path, class: "btn-primary" %>
+  <div class="title-games-month">
+    <h2 >Infinite Games of the month</h2>
+  </div>
+  <div class="cards">
+    <% @games.each do |game| %>
+      <div class= "card">
+        <div class= "blob ">
+          <img class="image-card align-center" src= <%= image_path game.image_url %> >
+        </div>
+        <div class="text-center">
+          <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
+          <h3><%= game.name %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "SEE ALL THE BOARD GAMES", games_path, class: "btn-primary game-month" %>
 </div>

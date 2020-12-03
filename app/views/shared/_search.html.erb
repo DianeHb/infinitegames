@@ -5,37 +5,33 @@
      <div class="search-grid">
           <div class="search-item">
             <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a Game"
-            %>
+                               params[:query],
+                               class: "form-control",
+                               placeholder: "Find a Game" %>
           </div>
 
           <div class="search-item">
             <%= text_field_tag :min_age,
-              params[:min_age],
-              class: "form-control",
-              placeholder: "Min age"
-            %>
+                               params[:min_age],
+                               class: "form-control",
+                               placeholder: "Min age" %>
           </div>
 
-          <div class="search-item">
+          <div class="search-item", >
             <%= text_field_tag :players_number,
-              params[:players_number],
-              class: "form-control",
-              placeholder: "4P"
-            %>
+                               params[:players_number],
+                               class: "form-control",
+                               placeholder: "4P" %>
           </div>
 
           <div class="search-item">
             <%= text_field_tag :duration,
-              params[:duration],
-              class: "form-control",
-              placeholder: "50 min"
-            %>
+                               params[:duration],
+                               class: "form-control",
+                               placeholder: "50 min" %>
           </div>
        </div>
-       <div class=" search-btn-2">
+       <div class="search-btn-2">
           <%= submit_tag "SEARCH", class: "btn-primary search-btn" %>
        </div>
       <% end %>
