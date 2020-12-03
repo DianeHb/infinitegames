@@ -1,16 +1,37 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
   grid-gap: 16px;
+  padding: 0 200px;
 }
 
 .card {
   border-radius: 20px;
   display: block;
   position: relative;
+  -webkit-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
+  -moz-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
+  box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
 }
 
-.image {
-  width: 300px;
-  position: center;
+.blob{
+  background-image: url(./blob.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  display: flex;
 }
+
+.image-card {
+  width: 250px;
+  // position: center;
+  margin: 0 auto;
+  display: block;
+  padding: 2em;
+  // mix-blend-mode: multiply;
+  mix-blend-mode:darken;
+  align-self: center;
+}
+
+// A voir plus tard pour le blob
+// "style="transform: rotate(<%= rand 360 %>deg); -ms-transform: rotate(<%= rand 360 %>deg);"

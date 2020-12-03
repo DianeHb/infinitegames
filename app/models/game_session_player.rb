@@ -1,4 +1,4 @@
 class GameSessionPlayer < ApplicationRecord
-  belongs_to :games_sessions
+  belongs_to :game_session
   belongs_to :player, polymorphic: true
 end

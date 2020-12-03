@@ -4,15 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :library_games, foreign_key: :owner_id
+  has_many :library_games, foreign_key: :owner_id, dependent: :destroy
   has_many :games, through: :library_games
-  has_many :games_sessions
-  has_many :guests
+  has_many :game_sessions, dependent: :destroy
+  has_many :guests, dependent: :destroy
 
   def friends
-    User.joins("INNER JOIN friendships ON friendships.friend1_id = #{id} OR friendships.friend2_id = #{id}").
+    User.joins("INNER JOIN friendships ON users.id = friendships.friend1_id OR users.id = friendships.friend2_id").
       where(friendships: { status: 'accepted' }).
-      where.not(id: id) #Don't want to get your id back
+      where.not(id: id) # Don't want to get your id back
   end
+
+  # def friends
+  #   User.joins("INNER JOIN friendships ON friendships.friend1_id = #{id} OR friendships.friend2_id = #{id}").
+  #     where(friendships: { status: 'accepted' }).
+  #     where.not(id: id) # Don't want to get your id back
+  # end
 
 end
