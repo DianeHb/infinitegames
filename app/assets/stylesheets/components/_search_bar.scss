@@ -1,0 +1,43 @@
+.search-grid {
+  /* margin: auto; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  // padding: 20px;
+  justify-content: space-between;
+  align-content: center;
+  justify-items: end;
+
+}
+.search-btn {
+  justify-content: end;
+}
+
+.search-btn-2 {
+  display: flex;
+}
+
+.search-background{
+  background-color: $light-primary;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  // margin: 0 20px;
+}
+
+#query {
+  width: 200px;
+}
+
+#min_age {
+  width: 100px;
+}
+
+#duration {
+  width: 100px;
+}
+
+#players_number {
+  width: 100px;
+}
