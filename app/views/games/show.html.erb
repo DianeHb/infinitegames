@@ -1,0 +1,21 @@
+<%= image_tag @game.image_url %>
+
+<%= @game.name %>
+<%= @game.description %>
+
+<%= link_to  "Add to my Library", path %>
+
+
+<h1>Description</h1>
+<h1>More information</h1>
+<p>Published by</p>
+<p><%= @game.editor %></p>
+<p>Created by</p>
+<p><%= @game.creators %></p>
+
+
+<h1>Reviews of Infinite Games Community</h1>
+
+<%=  %>
+
+@game.reviews
