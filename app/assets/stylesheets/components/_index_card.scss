@@ -1,0 +1,16 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card {
+  border-radius: 20px;
+  display: block;
+  position: relative;
+}
+
+.image {
+  width: 300px;
+  position: center;
+}
