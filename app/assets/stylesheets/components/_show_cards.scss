@@ -1,0 +1,141 @@
+.blob_show {
+  width: 40%;
+  background-image: asset-url('blob.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60em;
+  height: 50em;
+  left: -9em;
+  position: relative;
+  bottom: 5em;
+
+  img {
+    mix-blend-mode: multiply;
+    // Width à voir en fonction des images
+    width: 30em;
+    left: 10em;
+    position: relative;
+  }
+}
+
+.main_infos {
+  width: 60%;
+  margin: 2em;
+}
+
+.colored_infos {
+  display: flex;
+  justify-content: flex-start;
+  grid-gap: 20px;
+  .colored_info1 {
+    color: white;
+    background-color: #F6ADC7;
+    border-radius: 50px;
+    padding: 6px 10px 6px 10px;
+  }
+  .colored_info2 {
+    color: white;
+    background-color: #FEDA97;
+    border-radius: 50px;
+    padding: 6px 10px 6px 10px;
+  }
+  .colored_info3 {
+    color: white;
+    background-color: #FFC2B8;
+    border-radius: 50px;
+    padding: 6px 10px 6px 10px;
+  }
+}
+
+.game_presentation{
+  display: flex;
+}
+
+.card-review {
+  width: 42em;
+  background-color: white;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+
+.game-infos-background {
+  background-color: #F6EEF1;
+  display: flex;
+}
+
+.left_infos {
+  width: 70%;
+  margin: 2em;
+  padding: 2em;
+}
+
+.right_infos {
+  width: 30%;
+  background-color: #F6D0DE;
+  padding: 2em;
+  margin: 2em;
+}
+
+.reviews-background {
+  background-color: $light-yellow;
+  h2 {
+    text-align: center;
+    padding: 16px;
+  }
+}
+
+.cards-reviews {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8px;
+}
+.review_infos {
+  flex-grow: 1;
+  margin: .5rem;
+}
+
+.left-review {
+  width: 60%;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-review {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  .date-review {
+    margin-bottom: 0;
+    color: #ABABAB
+  }
+}
+
+.username {
+  font-weight: bold;
+}
+
+.text-review {
+  color:#BFBFBF;
+  margin-bottom: 0;
+}
+
+.game_show_rating {
+  color: #858585;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.game_mec_details {
+  color: #33596d;
+}
+.game_cat_details {
+  color: $blue;
+}

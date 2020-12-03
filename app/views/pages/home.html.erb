@@ -1,2 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="hero">
+    <h1>Create your own board game <br>to  manage your games </h1>
+    <h3>Managing your games has never been so easy.<br>
+    Try our board game manager and you won't be able to do without it !</h3>
+    <%= link_to "I CREATE MY BOARD GAME", new_user_session_path, class: "btn-primary" %>
+  </div>
+
+<div class="container">
+
+  <div class="features">
+    <h2>How can we help you ?</h2>
+    <div class="home-features">
+
+      <div class="feature">
+        <%= image_tag("Homepage/save.png", style: "height:200px;margin-bottom:20px;") %>
+        <p>You can <span class="highlight"> save all your your game sessions </span>in
+        infinite games for all your games. Even even those that do not belong to you.  </p>
+      </div>
+
+      <div class="feature">
+        <%= image_tag("Homepage/quest.png", style: "height:200px; margin-bottom:20px;") %>
+        <p>You can <span class="highlight">find the ideal board game for your party </span>in your
+        library games, in that of your friends or in the infinite games library.</p>
+      </div>
+
+      <div class="feature">
+        <%= image_tag("Homepage/stat.png", style: "height:200px;margin-bottom:20px;") %>
+        <p>You can <span class="highlight">see your session game statistics </span>for each game you have played.
+        You will know who is the best to play, how many games you play in the year, ...  </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="search">
+  <div class="search-title">
+    <%= image_tag("dice-search.png") %>
+    <h2>Find your ideal board game !</h2>
+    <%= image_tag("dice-search.png") %>
+</div>
+</div>
+<div class="games-month">
+<h2>Infinite Games of the month </h2>
+  <%= link_to "SEE ALL THE BOARD GAMES", games_path, class: "btn-primary" %>
+</div>
