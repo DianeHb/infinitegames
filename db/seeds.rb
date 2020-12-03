@@ -244,14 +244,14 @@ p "Seeds for Reviews"
 
 # COMMENTS_0 = ["Didn't like this game at all", "Wouldn't play this game even if it was the only one!", "Awful"]
 # COMMENTS_1 = ["Not my type of games!", "Not so fun...", "Definitely wouldn't recommend this", "Boring..."]
-COMMENTS_2 = ["Not great but not too bad", "My family didn't have fun playing this", "Rules were definitely too complicated so we couldn't play!", "Not a huge fan", "Good enough when you're bored", "Wouldn't recommend...", "Kinda boring..."]
-COMMENTS_3 = ["Okay for a family week-end", "Not the best game but enough to have a good time", "Nice Game!", "Worth the try!"]
-COMMENTS_4 = ["Great entertainement 😀", "Really enjoyed playing this!", "Playing this game every games night", "Go for it!"]
-COMMENTS_5 = ["Favorite game ever, it's awesome! 💗","Would definitely recommend, this game is great!", "Mind blowing!", "Fantastic", "Loving this"]
+# COMMENTS_2 = ["Not great but not too bad", "My family didn't have fun playing this", "Rules were definitely too complicated so we couldn't play!", "Not a huge fan", "Good enough when you're bored", "Wouldn't recommend...", "Kinda boring..."]
+COMMENTS_3 = ["Okay for a family week-end", "Not the best game but enough to have a good time", "Worth the try!", "Rules a bit complicated but once you made it, it's nice!", "Would be great if it didn't take so long to get into it", "Difficult to begin but after it's nice"]
+COMMENTS_4 = ["Great entertainement 😀", "Really enjoyed playing this!", "Playing this game every games night", "Go for it!", "Nice Game!", "Beautiful game, the design is awesome!", "Everyone in the house love this game!"]
+COMMENTS_5 = ["Favorite game ever, it's awesome! 💗","Would definitely recommend, this game is great!", "Mind blowing!", "Fantastic", "Loving this", "Once you've this game, you can't stop playing!"]
 
 games.each do |game|
   users.shuffle.first(5).each do |user|
-    rating = rand(2..5)
+    rating = rand(3..5)
     Review.create!(
       game: game,
       rating: rating,
@@ -264,7 +264,7 @@ games.each do |game|
   game.reviews.each do |review|
     ratings += review.rating
   end
-  game.rating_general = ratings/ratings_nb
+  game.rating_general = (ratings/ratings_nb).round(1)
   game.save!
 end
 
