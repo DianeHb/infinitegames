@@ -63,7 +63,6 @@
 
 .games-month {
   text-align: center;
-  height: 550px;
 }
 .title-games-month {
 margin-top:50px;
@@ -72,6 +71,20 @@ margin-bottom:40px;
 .game-month {
   margin-top: 50px;
 }
+
+.blob-left {
+  position: absolute;
+  left:0;
+  margin-top: 300px;
+
+}
+.blob-right {
+  position: absolute;
+  right: 0;
+  margin-top: -500px;
+
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .home-features {
