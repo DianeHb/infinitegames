@@ -3,6 +3,7 @@
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
   grid-gap: 16px;
   padding: 0 200px;
+  margin-bottom: 40px;
 }
 
 .card {
@@ -18,7 +19,7 @@
 }
 
 .blob{
-  background-image: url(./blob.svg);
+  background-image: asset-url('blob.svg');
   background-repeat: no-repeat;
   background-position: center;
   height: 320px;
