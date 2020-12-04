@@ -13,8 +13,6 @@
     <div class="game_show_rating"><%= sanitize '<i class="fas fa-star text-info"></i>' * @game.rating_general  %><%= sanitize '<i class="fas fa-star"></i>' * (5-@game.rating_general) %> <%= @game.reviews.count %> reviews</div>
     <div>
       <h1><%= @game.name %></h1>
-      <p><%= sanitize @game_short_desc %></p>
-      <!--
       <p class="game_mec_details">
         <% nb_mechanics = @game.mechanics.count < 3 ? @game.mechanics.count : 3 %>
         <% @game.mechanics.first(nb_mechanics-1).each do |mechanic|%>
@@ -22,7 +20,7 @@
         <% end %>
         <%= @game.mechanics[nb_mechanics-1].name %>
       </p>
-      -->
+      <p><%= sanitize @game_short_desc %></p>
       <p class="game_cat_details">
         <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
         <% @game.categories.first(nb_categories-1).each do |category|%>
