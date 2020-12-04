@@ -27,13 +27,13 @@
           <div class="search-item">
             <%= text_field_tag :duration,
                                params[:duration],
-                               label: "ert",
                                class: "form-control",
                                placeholder: "50 min" %>
           </div>
-       </div>
+
        <div class="search-btn-2">
-          <%= submit_tag "SEARCH", class: "btn-primary search-btn" %>
+          <%= submit_tag "SEARCH", class: "btn-primary" %>
+       </div>
        </div>
       <% end %>
   </div>

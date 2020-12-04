@@ -6,7 +6,7 @@
   padding: 8px 20px 12px 20px;
   border-radius: 25px;
   transition: background 0.3s ease;
-  text-decoration:none;
+  box-shadow: 0 2px 0 rgba($color:$dark-primary, $alpha: 1.0);
 }
 
 .btn-secondary {
@@ -17,5 +17,10 @@
   border-radius: 20px;
   transition: background 0.3s ease;
   border:solid;
-  text-decoration:none;
+}
+
+.btn-secondary:hover {
+  color: white;
+  background:$primary;
+  border: $light-primary solid,
 }
