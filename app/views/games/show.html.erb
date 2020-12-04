@@ -27,7 +27,7 @@
         <% end %>
         <%= @game.mechanics[nb_mechanics-1].name %>
       </p>
-      <p><%= sanitize @game_short_desc %></p>
+      <p><%= game_short_description(@game) %></p>
       <p class="game_cat_details">
       <strong>Categories: </strong>
         <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
@@ -36,7 +36,8 @@
         <% end %>
         <%= @game.categories[nb_categories-1].name %>
       </p>
-      <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary" %>
+      <%= link_to  '+ ADD TO MY GAMES LIBRARY', games_path, class:"btn-primary librarytest" %>
+      <%# <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary" %>
     </div>
   </div>
 </div>
