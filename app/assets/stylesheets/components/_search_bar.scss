@@ -1,22 +1,19 @@
 .search-grid {
   /* margin: auto; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
   grid-gap: 16px;
   // padding: 20px;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
   justify-items: end;
+  align-items: center;
 }
 
 .form-control {
 border: none;
 border-radius: 5px;
+}
 
-}
-.search-btn {
-  justify-content: end;
-}
 
 .search-btn-2 {
   display: flex;
@@ -25,6 +22,9 @@ border-radius: 5px;
 .search-background{
   background-color: $light-primary;
   margin-bottom: 20px;
+  background-color:$light-primary;
+  height: 200px;
+  padding-top:50px
 }
 
 .form-control {
