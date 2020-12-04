@@ -13,6 +13,8 @@
   -webkit-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   -moz-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
+  color: black;
+
 }
 
 .blob{
@@ -34,6 +36,11 @@
   align-self: center;
 }
 
+.card-game-linked:hover{
+  text-decoration: none !important;
+  transform: scale(1.1);
+}
+
 .blob-left-games {
   position: absolute;
   left: 0;
@@ -45,5 +52,6 @@
   right: 0;
   margin-top: px;
 }
+
 // A voir plus tard pour le blob
 // "style="transform: rotate(<%= rand 360 %>deg); -ms-transform: rotate(<%= rand 360 %>deg);"
