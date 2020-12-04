@@ -16,6 +16,8 @@
   -webkit-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   -moz-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
+  color: black;
+
 }
 
 .blob{
@@ -35,6 +37,11 @@
   // mix-blend-mode: multiply;
   mix-blend-mode:darken;
   align-self: center;
+}
+
+.card-game-linked:hover{
+  text-decoration: none !important;
+  transform: scale(1.1);
 }
 
 // A voir plus tard pour le blob
