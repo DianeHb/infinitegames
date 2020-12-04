@@ -24,11 +24,15 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
 
-    if @game.description[0..3] == "</p>"
-      @game_short_desc = "#{@game.description.split("</p>").first}</p>"
-    else
-      @game_short_desc = @game.description.split("<br").first
-    end
+    @game_short_desc = truncate (@game.description, length)
+
+    # if @game.description[0..3] == "</p>"
+    #   @game_short_desc = "#{@game.description.split("</p>").first}</p>"
+    # else
+    #   @game_short_desc = @game.description.split("<br").first
+    # end
+
+    # if user_signed_in? && current_user.library_games.game
   end
 
 end

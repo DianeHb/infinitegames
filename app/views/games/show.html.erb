@@ -36,7 +36,7 @@
         <% end %>
         <%= @game.categories[nb_categories-1].name %>
       </p>
-      <%= link_to  '+ ADD TO MY GAMES LIBRARY', root_path, class:"btn-primary" %>
+      <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary" %>
     </div>
   </div>
 </div>
