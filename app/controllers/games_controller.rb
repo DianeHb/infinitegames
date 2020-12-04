@@ -20,4 +20,15 @@ class GamesController < ApplicationController
     end
 
   end
+
+  def show
+    @game = Game.find(params[:id])
+
+    if @game.description[0..3] == "</p>"
+      @game_short_desc = "#{@game.description.split("</p>").first}</p>"
+    else
+      @game_short_desc = @game.description.split("<br").first
+    end
+  end
+
 end

@@ -1,0 +1,72 @@
+<div class="game_presentation">
+  <div class="blob_show"><%= image_tag @game.image_url %></div>
+  <div class="main_infos">
+    <div class="colored_infos">
+      <% if @game.min_players == @game.max_players%>
+        <div class="colored_info1"><i class="fas fa-users"></i> <%= "#{@game.max_players} PLAYERS" %></div>
+      <% else %>
+        <div class="colored_info1"><i class="fas fa-users"></i> <%= "#{@game.min_players} TO #{@game.max_players} PLAYERS" %></div>
+      <% end %>
+      <div class="colored_info2"><i class="fas fa-user"></i> <%= "#{@game.min_age} YO +" %></div>
+      <div class="colored_info3"><i class="far fa-clock"></i> <%= "#{@game.min_playtime}\' - #{@game.max_playtime}\'" %></div>
+    </div>
+    <div class="game_show_rating"><%= sanitize '<i class="fas fa-star text-info"></i>' * @game.rating_general  %><%= sanitize '<i class="fas fa-star"></i>' * (5-@game.rating_general) %> <%= @game.reviews.count %> reviews</div>
+    <div>
+      <h1><%= @game.name %></h1>
+      <p class="game_mec_details">
+        <% nb_mechanics = @game.mechanics.count < 3 ? @game.mechanics.count : 3 %>
+        <% @game.mechanics.first(nb_mechanics-1).each do |mechanic|%>
+          <%= mechanic.name %> •
+        <% end %>
+        <%= @game.mechanics[nb_mechanics-1].name %>
+      </p>
+      <p><%= sanitize @game_short_desc %></p>
+      <p class="game_cat_details">
+        <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
+        <% @game.categories.first(nb_categories-1).each do |category|%>
+          <%= category.name %> •
+        <% end %>
+        <%= @game.categories[nb_categories-1].name %>
+      </p>
+      <%= link_to  '+ ADD TO MY GAMES LIBRARY', root_path, class:"btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<div class="game-infos-background">
+  <div class="left_infos">
+    <h2>Description</h2>
+    <%= sanitize @game.description %>
+  </div>
+  <div class="right_infos">
+    <h2>More information</h2>
+    <div>
+      <p class="font-weight-bold">Published by</p>
+      <p class="subinfos"><%= @game.editor %></p>
+      <p class="font-weight-bold">Created by</p>
+      <p class="subinfos"><%= @game.creators %></p>
+    </div>
+  </div>
+</div>
+
+<div class="reviews-background">
+  <h2>Reviews of Infinite Games Community</h2>
+  <div class="cards-reviews">
+    <% @game.reviews.first(3).each do |review| %>
+      <div class="card-review p-2 d-flex">
+        <%= image_tag review.user.avatar_url, class: "avatar-review m-2" %>
+        <div class="review_infos d-flex justify-content-between">
+          <div class="left-review">
+            <p class="username-review"><%= review.user.username %></p>
+            <p class="text-review"><%= review.text %></p>
+          </div>
+          <div class="right-review">
+            <p class="rating-review"><%= sanitize '<i class="fas fa-star text-info"></i>' * review.rating %><%= sanitize '<i class="fas fa-star"></i>' * (5-review.rating) %></p>
+            <p class="date-review">Review left on <%= review.created_at.strftime("%d.%m.%Y")  %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="btn-primary m-auto">VIEW ALL REVIEWS</div>
+</div>
