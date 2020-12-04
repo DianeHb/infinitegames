@@ -6,7 +6,8 @@ class LibraryGamesController < ApplicationController
       @library_game.owner = current_user
     )
     if @library_game.save
-      redirect_to library_game_path(@library_game)
+      redirect_to game_path(@game)
+      # redirect_to library_game_path(@library_game)
     else
       #RENDER AN ERROR MESSAGE ?
     end
