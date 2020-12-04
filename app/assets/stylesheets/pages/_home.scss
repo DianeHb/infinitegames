@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .hero {
-  background-image:url("homepage.png");
+  background-image:asset-url("homepage.png");
   height: 70vh;
   background-size:cover;
   background-position: center;
@@ -31,7 +31,11 @@
 
 .search{
   background-color:$light-primary;
-  height: 400px;
+  height: 300px;
+  padding-top:50px
+}
+.search-page{
+  height: 150px;
   padding-top:50px
 }
 
@@ -42,6 +46,7 @@
 }
 .features p {
   width:80%;
+  margin:0 auto;
 }
 
 .highlight {
@@ -53,11 +58,19 @@
   display: flex;
   grid-gap: 16px;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .games-month {
   text-align: center;
-  height: 500px;
+  height: 550px;
+}
+.title-games-month {
+margin-top:50px;
+margin-bottom:40px;
+}
+.game-month {
+  margin-top: 50px;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
