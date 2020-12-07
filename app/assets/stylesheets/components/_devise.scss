@@ -1,7 +1,16 @@
 .color {
- background-color: #FEDA97;
+ background-color: $light-primary;
 }
 
 .log_in{
-  height: 400px;
+  height: 450px;
+}
+
+.sign-in-background {
+  background-image:asset-url('sign-in.png');
+  background-size:cover;
+}
+
+.espace {
+  height: 150px;
 }
