@@ -1,0 +1,10 @@
+meta_product_name: "Infinite games"
+meta_title: "Infinite games - Manages your Games library"
+meta_description: "Managing your games has never been so easy.
+Try our games library manager and you won't be able to do without it !"
+meta_image: "banner.png" # should exist in `app/assets/images/`
+twitter_account: "@leWagonNantes"   # required for Twitter Cards
+
+
+# clever env set DOMAIN www.infinitegames.xyz
+# refaire un  banner.png en 1200X630
