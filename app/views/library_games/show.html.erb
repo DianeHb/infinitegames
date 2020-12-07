@@ -1,14 +1,14 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
   Add a Game Session
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="gameSessionModal" tabindex="-1" role="dialog" aria-labelledby="gameSessionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a Game Session</h5>
+        <h5 class="modal-title" id="gameSessionModalLabel">Add a Game Session</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -16,11 +16,18 @@
       <div class="modal-body">
         <%= simple_form_for [@game, @game_session] do |f| %>
           <div class="form-inline">
-            <%= f.date_field :date, label: "Date" %>
-            <%= f.input :duration %>
+            <%= f.input :date %>
+            <%= f.input :duration, input_html: {style: "width: 70px"} %>
           </div>
           <%= f.input :comment %>
-          <%= f.submit "Add Session", class: "btn btn-primary float-right" %>
+          <%= abymize(:game_session_players, f) do |abyme| %>
+            <%= abyme.records %> <!-- Already existing ones -->
+            <%= new_records_for(:game_session_players, f) do |p| %>
+              <%= render "abyme/game_session_player_fields", f: p, friends: @friends %>
+            <% end %>
+            <%= add_association content: "Add a player", tag: :div, html: {id: "AddPlayer"} %> <!-- Add a new form to add player -->
+          <% end %>
+          <%= f.submit "Add Session", class: "btn-primary float-right" %>
         <% end %>
       </div>
     </div>

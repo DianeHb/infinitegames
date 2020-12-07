@@ -15,6 +15,6 @@ class GameSessionsController < ApplicationController
   private
 
   def game_session_params
-    params.require(:game_session).permit(:date, :duration, :comment)
+    params.require(:game_session).permit(:date, :duration, :comment, game_session_players_attributes: [:id, :_destroy, :winner, :score, :player_id, :player_type]) #Only friends/users at the moment
   end
 end

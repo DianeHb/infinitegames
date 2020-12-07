@@ -1,0 +1,10 @@
+<div class="form-inline pb-1">
+  <%= f.association :player, collection: @friends, label_method: :first_name, input_html: {style: "margin: 0px 4px 0px 4px"} %>
+  <%= f.hidden_field :player_type, {value: "User"} %>
+  <%= f.input :score, input_html: {style: "width: 70px; margin: 0px 4px 0px 4px"} %>
+  <%= f.input :winner, input_html: {style: "margin: 0px 4px 0px 4px"} %>
+  <%= f.hidden_field :_destroy %> <!-- Useful if we want to be able to destroy a player -->
+  <%= remove_association(tag: :div) do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+</div>

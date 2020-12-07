@@ -274,7 +274,7 @@ p "Seeds for reviews done!"
 
 p "Seeds for Friends"
 
-friends_possibilities = (2..(users_number-2))
+friends_possibilities = (2..6)
 users.each do |user|
   friends = user.friends
   n = rand(friends_possibilities)
