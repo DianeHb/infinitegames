@@ -2,7 +2,7 @@ class LibraryGamesController < ApplicationController
   def index
     @games = current_user.library_games
   end
-  
+
   def create
     # @game = Game.find(params[:game_id])
     # @library_game = LibraryGame.new(
@@ -15,6 +15,11 @@ class LibraryGamesController < ApplicationController
     # else
     #   #RENDER AN ERROR MESSAGE ?
     # end
+  end
+
+  def show
+    @game = LibraryGame.find(params[:id])
+    @game_session = GameSession.new
   end
 
 end
