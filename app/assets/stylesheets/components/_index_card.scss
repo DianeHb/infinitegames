@@ -26,6 +26,14 @@
   display: flex;
 }
 
+.blob-grey{
+  background-image: asset-url('blob_grey.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  display: flex;
+}
+
 .image-card {
   width: 250px;
   // position: center;

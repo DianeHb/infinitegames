@@ -1,4 +1,8 @@
 class LibraryGamesController < ApplicationController
+  def index
+    @games = current_user.library_games
+  end
+  
   def create
     # @game = Game.find(params[:game_id])
     # @library_game = LibraryGame.new(
