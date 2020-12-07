@@ -36,7 +36,11 @@
         <% end %>
         <%= @game.categories[nb_categories-1].name %>
       </p>
+      <% if  current_user.library_games.where("game_id=#{@game.id}") != [] %>
+      <em>You already have this game.</em>
+      <% else %>
       <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary"%>
+      <% end %>
     </div>
   </div>
 </div>
@@ -49,10 +53,10 @@
   <div class="right_infos">
     <h2>More information</h2>
     <div>
-      <p class="font-weight-bold">Published by</p>
-      <p class="subinfos"><%= @game.editor %></p>
-      <p class="font-weight-bold">Created by</p>
-      <p class="subinfos"><%= @game.creators %></p>
+      <p class="font-weight-bold subinfos">Published by</p>
+      <p><%= @game.editor %></p>
+      <p class="font-weight-bold subinfos">Created by</p>
+      <p><%= @game.creators %></p>
     </div>
   </div>
 </div>
