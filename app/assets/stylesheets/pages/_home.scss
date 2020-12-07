@@ -58,11 +58,11 @@
   display: flex;
   grid-gap: 16px;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
 .games-month {
   text-align: center;
+  height: 600px;
 }
 .title-games-month {
 margin-top:50px;
@@ -75,7 +75,7 @@ margin-bottom:40px;
 .blob-left {
   position: absolute;
   left:0;
-  margin-top: 300px;
+  margin-top: 30px;
 
 }
 .blob-right {

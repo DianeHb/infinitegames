@@ -3,10 +3,11 @@
   display: flex;
   grid-gap: 16px;
   // padding: 20px;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
   justify-items: end;
-  align-items: center;
+  align-items: flex-end;
+  margin-left: 100px;
 }
 
 .form-control {
@@ -23,8 +24,9 @@ border-radius: 5px;
   background-color: $light-primary;
   margin-bottom: 20px;
   background-color:$light-primary;
-  height: 200px;
-  padding-top:50px
+  height: 170px;
+  padding-top:50px;
+  margin-bottom: 50px;
 }
 
 .form-control {
@@ -45,4 +47,9 @@ border-radius: 5px;
 
 #players_number {
   width: 100px;
+}
+
+.little {
+  font-size:11px;
+
 }

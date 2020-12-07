@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:index, :show] do
     resources :reviews, only: [:create]
+    resources :library_games, only: [:create]
   end
 
   resources :friends, only: [:index, :create]

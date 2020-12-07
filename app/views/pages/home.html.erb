@@ -1,13 +1,13 @@
 
 <div class="hero">
-    <h1>Create your own library game <br>to  manage your games </h1>
-    <h3>Managing your games has never been so easy.<br>
-    Try our library game manager and you won't be able to do without it !</h3>
-    <%= link_to "I CREATE MY LIBRARY GAME", new_user_session_path, class: "btn-primary" %>
-  </div>
-  <div class="blob-left">
-    <%= image_tag("Homepage/blobhome1.png") %>
-  </div>
+  <h1>Create your own games library <br>to  manage your games </h1>
+  <h3>Managing your games has never been so easy.<br>
+  Try our games library manager and you won't be able to do without it !</h3>
+  <%= link_to "I CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary" %>
+</div>
+<div class="blob-left">
+  <%= image_tag("Homepage/blobhome1.png") %>
+</div>
 <div class="blob-right">
   <%= image_tag("Homepage/blolbhome2.png") %>
 </div>
@@ -51,6 +51,7 @@
   </div>
   <div class="cards">
     <% @games.each do |game| %>
+      <%= link_to game_path(game), class:"card-game-linked" do %>
       <div class= "card">
         <div class= "blob ">
           <img class="image-card align-center" src= <%= image_path game.image_url %> >
@@ -60,6 +61,7 @@
           <h3><%= game.name %></h3>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
   <%= link_to "SEE ALL THE BOARD GAMES", games_path, class: "btn-primary game-month" %>

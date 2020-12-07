@@ -17,7 +17,8 @@
   position: relative;
   img {
     mix-blend-mode: multiply;
-    height: 500px;
+    max-width: 600px;
+    height: auto;
     left: 10em;
     position: relative;
   }
@@ -75,6 +76,7 @@
 .game-infos-background {
   background-color: #F6EEF1;
   display: flex;
+  padding-left: 100px;
 }
 
 .left_infos {
@@ -152,4 +154,17 @@
 .date-review {
   margin-bottom: 0;
   color: #ABABAB
+}
+
+.blob-left-show {
+  position: absolute;
+  left:0;
+  margin-top: 700px;
+
+}
+.blob-right-show {
+  position: absolute;
+  right: 0;
+  margin-top: 900px;
+
 }

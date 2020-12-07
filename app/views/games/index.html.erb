@@ -1,3 +1,9 @@
+<div class="blob-left-games">
+  <%= image_tag("Games_index/blob-search-left.png") %>
+</div>
+<div class="blob-right-games">
+  <%= image_tag("Games_index/blob-search-right.png") %>
+</div>
 <div class="search-page">
   <div class="search-title">
     <%= image_tag("dice-search.png") %>
@@ -5,11 +11,11 @@
     <%= image_tag("dice-search.png") %>
   </div>
 </div>
-
 <%= render "shared/search" %>
 
 <div class="cards">
   <% @games.each do |game| %>
+   <%= link_to game_path(game), class:"card-game-linked" do %>
   <div class= "card">
     <div class= "blob ">
       <img class="image-card align-center" src= <%= image_path game.image_url %> >
@@ -19,5 +25,6 @@
       <h3><%= game.name %></h3>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
