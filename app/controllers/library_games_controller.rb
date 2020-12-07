@@ -6,8 +6,6 @@ class LibraryGamesController < ApplicationController
       owner: current_user
     )
 
-    # @library_game.save!
-
     if @library_game.save
       redirect_to game_path(@game)
       # redirect_to library_game_path(@library_game)
