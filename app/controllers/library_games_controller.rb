@@ -21,11 +21,9 @@ class LibraryGamesController < ApplicationController
 
     @game_session          = GameSession.new
     @game_session_player   = GameSessionPlayer.new
-    # @players_possibilities = [current_user] + current_user.friends.order(:first_name, :last_name)
 
     @friends = current_user.friends.order(:first_name, :last_name)
     @guests  = current_user.guests.order(:name)
-
 
     @review         = Review.new
     @reviews        = @game.game.reviews
