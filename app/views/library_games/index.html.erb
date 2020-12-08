@@ -2,18 +2,19 @@
 <div class="index-page">
   <div class="vertical-navbar">
     <%= link_to library_games_path, class: "card-game-linked" do %>
-      <%= image_tag("vertical-navbar/my-ludo-icon.svg", :class => "navbar-icon-1") %>
+      <div class="navbar-icon-1"></div>
     <% end %>
 
     <%= link_to search_path, class: "nabar-link" do %>
-      <%= image_tag("vertical-navbar/search-icon.svg", :class => "navbar-icon-2") %>
-    <% end %>
-    <%= link_to search_path, class: "nabar-link" do %>
-      <%= image_tag("vertical-navbar/game-session-icon.svg", :class => "navbar-icon-3") %>
+      <div class="navbar-icon-2"></div>
     <% end %>
 
     <%= link_to search_path, class: "nabar-link" do %>
-      <%= image_tag("vertical-navbar/friends.svg", :class => "navbar-icon-4") %>
+      <div class="navbar-icon-3"></div>
+    <% end %>
+
+    <%= link_to search_path, class: "nabar-link" do %>
+      <div class="navbar-icon-4"></div>
     <% end %>
   </div>
   <div class="library-index">

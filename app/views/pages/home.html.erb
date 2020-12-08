@@ -1,30 +1,33 @@
 
 <div class="hero">
-
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active carousel-height text-center">
-      <%= image_tag("Homepage/home-1.png", class: "d-block slider-image", alt: "First slide") %>
-      <h4 class="mb-4">Try to create your own library game for a better life ! </h4>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active carousel-height text-center">
+        <%= image_tag("Homepage/home-1.png", class: "d-block slider-image", alt: "First slide") %>
+        <h2 class="mb-4">Try to create your own library game for a better life ! </h2>
         <%= link_to "I CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
+      </div>
+      <div class="carousel-item text-center">
+        <%= image_tag("Homepage/home-3.png", class: "d-block w-60 slider-image", alt: "Second slide") %>
+        <h2 class="mb-4">Find the ideal boarg game for your party ! </h2>
+        <%= link_to "FIND A GAME", games_path, class: "btn-primary btn-carroussel" %>
+      </div>
+      <div class="carousel-item text-center">
+        <%= image_tag("Homepage/home-2.png", class: "d-block w-60 slider-image", alt: "Second slide") %>
+        <h2 class="mb-4">Register all your games sessions in one place ! </h2>
+        <%= link_to "I CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
+      </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-    <div class="carousel-item">
-      <%= image_tag("Homepage/home-2.png", class: "d-block w-60 slider-image", alt: "Second slide") %>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+ </div>
 
 <div class="blob-left">
   <%= image_tag("Homepage/blobhome1.png") %>

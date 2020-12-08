@@ -8,15 +8,24 @@
 }
 
 .navbar-icon-1 {
-  height:50px;
+  height: 50px;
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 40px;
   width: 50px;
   position: sticky;
   top: 40px;
-  fill: white;
+  background-color: $light-blue ;
+  -webkit-mask: url(vertical-navbar/my-ludo-icon.svg) no-repeat center;
+  mask: url(vertical-navbar/my-ludo-icon.svg) no-repeat center;
+
+  &:hover {
+    background-color: white ;
+    -webkit-mask: url(vertical-navbar/my-ludo-icon.svg) no-repeat center;
+    mask: url(vertical-navbar/my-ludo-icon.svg) no-repeat center;
+  }
 }
+
 .navbar-icon-2 {
   height:50px;
   margin-left:8px;
@@ -24,6 +33,15 @@
   width: 50px;
   position: sticky;
   top: 130px;
+  background-color: $light-blue ;
+  -webkit-mask: url(vertical-navbar/search-icon.svg) no-repeat center;
+  mask: url(vertical-navbar/search-icon.svg) no-repeat center;
+
+  &:hover {
+    background-color: white ;
+    -webkit-mask: url(vertical-navbar/search-icon.svg) no-repeat center;
+    mask: url(vertical-navbar/search-icon.svg) no-repeat center;
+  }
 }
 
 .navbar-icon-3 {
@@ -33,6 +51,15 @@
   width: 50px;
   position: sticky;
   top: 220px;
+  background-color: $light-blue ;
+  -webkit-mask: url(vertical-navbar/game-session-icon.svg) no-repeat center;
+  mask: url(vertical-navbar/game-session-icon.svg) no-repeat center;
+
+  &:hover {
+    background-color: white ;
+    -webkit-mask: url(vertical-navbar/game-session-icon.svg) no-repeat center;
+    mask: url(vertical-navbar/game-session-icon.svg) no-repeat center;
+  }
 }
 
 .navbar-icon-4 {
@@ -42,8 +69,13 @@
   width: 50px;
   position: sticky;
   top: 320px;
-}
-.navbar-icon:hover {
-  fill:$light-blue;
+  background-color: $light-blue ;
+  -webkit-mask: url(vertical-navbar/friends.svg) no-repeat center;
+  mask: url(vertical-navbar/friends.svg) no-repeat center;
 
+  &:hover {
+    background-color: white;
+    -webkit-mask: url(vertical-navbar/friends.svg) no-repeat center;
+    mask: url(vertical-navbar/friends.svg) no-repeat center;
+  }
 }

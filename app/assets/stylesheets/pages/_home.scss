@@ -1,10 +1,15 @@
 // Specific CSS for your home-page
 .hero {
-  height: 70vh;
+  height: 80vh;
   background-size:cover;
   background-position: center;
   padding: 25px 0 40px 0;
   background-color:rgb(255, 225, 213);
+}
+
+
+.carousel-inner{
+  height: 70vh;
 }
 
 .hero h1 {
@@ -81,9 +86,9 @@ margin-bottom:40px;
 }
 
 .slider-image {
-  height: 44vh;
+  height: 55vh;
   margin: auto;
-  width: 42vh;
+  width: 65vh;
 }
 
 .carousel-height {
