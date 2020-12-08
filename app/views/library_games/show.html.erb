@@ -41,10 +41,10 @@
         Add a Game Session
       </button></div>
       <!-- Button trigger modal Lend Game -->
-      <div>
+      <div class="mt-2">
         <% if @game.borrowed %>
           <% borrower = @game.borrower_type == "User" ? @game.borrower.first_name : @game.borrower.name %>
-        <em>You lend this game to <%=borrower%> on <%= @game.borrowed_date  %></em>
+        <em>You lent this game to <%=borrower%> on <%= @game.borrowed_date  %></em>
         <% else %>
           <button type="button" class="btn-secondary" data-toggle="modal" data-target="#gameLendModal">
             Lend my Game
