@@ -12,4 +12,39 @@ text-align: center;
 
 .global-opinion {
   font-size: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 30px;
+}
+
+.statistics {
+  background-color:white;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.statistics-picto {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.statistic-item {
+  width: 80%;
+  margin: auto;
+}
+
+.statistic-title {
+  width: 80%;
+  margin: auto;
+}
+
+.podium-place {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.place {
+margin: 0 12px;
 }

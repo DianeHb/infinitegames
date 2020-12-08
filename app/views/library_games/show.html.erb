@@ -41,54 +41,91 @@
   </div>
 </div>
 <div class="library-games-podium">
-<h2>Podium</h2>
-
-  <% if @user_review.present? %>
-      <div><div class="reviews">
-      <p class="mb-0">My opinion :</p>
-          <div class="games_show_rating "><%= sanitize '<i class="fas fa-star text-info"></i>' * @user_review.rating %><%= sanitize '<i class="fas fa-star"></i>' * 5 - @user_review.rating %> </div>
+  <h2 class="pt-4">Podium</h2>
+    <div class="podium-place">
+      <div class="place">
+        <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
       </div>
-        <p class="global-opinion">Global opinion : <%= @average_rating.truncate(1) %> (<%= @game.game.reviews.count %> reviews)</p>
+      <div class="place">
+        <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
+      </div>
+      <div class="place">
+        <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
+      </div>
     </div>
-  <% else %>
-    <div>
-      <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal">
-        I GIVE MY OPINION
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel">I give my opinion</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-              <%= simple_form_for [@game.game, @review] do |f| %>
-                <div class="modal-body">
-                  <%= f.input :text, as: :text, label: "My opinion" %>
-                  <%= f.input :rating, as: :hidden %>
-                  <div class="my-3">
-                    <% 5.times do |index| %>
-                      <i id="<%= index + 1 %>" class="review-rating far fa-star truc"></i>
-                    <% end %>
+    <% if @user_review.present? %>
+        <div><div class="reviews">
+        <p class="mb-0">My opinion :</p>
+            <div class="games_show_rating "><%= sanitize '<i class="fas fa-star text-info"></i>' * @user_review.rating %><%= sanitize '<i class="fas fa-star"></i>' * (5 - @user_review.rating) %> </div>
+        </div>
+          <p class="global-opinion">Global opinion : <%= @average_rating.truncate(1) %> (<%= @game.game.reviews.count %> reviews)</p>
+      </div>
+    <% else %>
+      <div>
+        <button type="button" class="btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">
+          I GIVE MY OPINION
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">I give my opinion</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                <%= simple_form_for [@game.game, @review] do |f| %>
+                  <div class="modal-body">
+                    <%= f.input :text, as: :text, label: "My opinion" %>
+                    <%= f.input :rating, as: :hidden %>
+                    <div class="my-3">
+                      <% 5.times do |index| %>
+                        <i id="<%= index + 1 %>" class="review-rating far fa-star truc"></i>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class=" btn-primary">SAVES CHANGES</button>
-                </div>
-              <% end %>
+                  <div class="modal-footer">
+                    <button type="submit" class=" btn-primary">SAVES CHANGES</button>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>
 <div class="library-games-stats">
-  <h2>My statistics</h2>
-    <div>
+  <h2 class="pt-4">My statistics</h2>
+    <div class="statistics">
+      <div class="statistics-picto">
+
+        <div class ="statistic-item">
+          <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <p >Total duration of the game session</p>
+        </div>
+
+        <div class ="statistic-item">
+          <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <p class="statistic-title">Average game session time</p>
+        </div>
+
+        <div class ="statistic-item">
+          <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <p >Victories</p>
+        </div>
+
+        <div class ="statistic-item">
+          <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <p class="statistic-title"> Games sessions in the month</p>
+        </div>
+
+        <div class ="statistic-item">
+          <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <p class="statistic-title">Total duration of the game session</p>
+        </div>
+      </div>
     </div>
   <%= link_to "SEE ALL MY STATISTICS", "#", class: "btn-primary" %>
 </div>

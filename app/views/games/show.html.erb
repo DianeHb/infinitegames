@@ -43,22 +43,21 @@
 
 <div class="game-infos-background">
   <div class="left_infos">
-    <h2>Description</h2>
     <%= sanitize @game.description %>
   </div>
   <div class="right_infos">
     <h2>More information</h2>
     <div>
-      <p class="font-weight-bold">Published by</p>
-      <p class="subinfos"><%= @game.editor %></p>
-      <p class="font-weight-bold">Created by</p>
-      <p class="subinfos"><%= @game.creators %></p>
+      <p class="font-weight-bold subinfos mb-2">Published by</p>
+      <p class="mb-3"><%= @game.editor %></p>
+      <p class="font-weight-bold subinfos mb-2">Created by</p>
+      <p ><%= @game.creators %></p>
     </div>
   </div>
 </div>
 
 <div class="reviews-background">
-  <h2>Reviews of Infinite Games Community</h2>
+  <h2 class="pt-3 mb-2">Reviews of Infinite Games Community</h2>
   <div class="cards-reviews">
     <% @game.reviews.first(3).each do |review| %>
       <div class="card-review p-2 d-flex">

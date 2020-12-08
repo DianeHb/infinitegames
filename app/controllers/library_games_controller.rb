@@ -29,6 +29,5 @@ class LibraryGamesController < ApplicationController
     @user_review    = @reviews.find_by(user_id: current_user.id)
 
 
-
   end
 end
