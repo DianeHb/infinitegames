@@ -1,6 +1,10 @@
 import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {
-  altInput: true,
-  allowInput: true
-});
+const initflatpickr = () => {
+  flatpickr(".datepicker", {
+    altInput: true,
+    allowInput: true
+  });
+};
+
+export {initflatpickr}
