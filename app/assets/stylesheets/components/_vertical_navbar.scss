@@ -1,0 +1,49 @@
+.vertical-navbar {
+  background-color: $dark-blue;
+  height: auto;
+}
+
+.index-page {
+  display: flex;
+}
+
+.navbar-icon-1 {
+  height:50px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 40px;
+  width: 50px;
+  position: sticky;
+  top: 40px;
+  fill: white;
+}
+.navbar-icon-2 {
+  height:50px;
+  margin-left:8px;
+  margin-top: 40px;
+  width: 50px;
+  position: sticky;
+  top: 130px;
+}
+
+.navbar-icon-3 {
+  height:50px;
+  margin-left: 8px;
+  margin-top: 40px;
+  width: 50px;
+  position: sticky;
+  top: 220px;
+}
+
+.navbar-icon-4 {
+  height:50px;
+  margin-left: 8px;
+  margin-top: 40px;
+  width: 50px;
+  position: sticky;
+  top: 320px;
+}
+.navbar-icon:hover {
+  fill:$light-blue;
+
+}
