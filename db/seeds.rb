@@ -198,6 +198,7 @@ games.each do |game|
     editor:       game["primary_publisher"]["name"],
     creators:     game["artists"].join(', '),
     image_url:    game["image_url"],
+    rules_url:    game["rules_url"],
   )
 
   #Create links with mechanics
