@@ -46,6 +46,15 @@ class LibraryGamesController < ApplicationController
     end
   end
 
+  def return
+    @game           = current_user.library_games.find(params[:id])
+    @game.borrowed  = false
+    @game.borrower  = nil
+    @game.borrowed_date = nil
+    @game.save
+    redirect_to library_game_path(@game)
+  end
+
   private
 
   def game_params
