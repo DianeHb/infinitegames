@@ -17,7 +17,7 @@
         <%= simple_form_for [@game, @game_session] do |f| %>
           <div class="form-inline">
             <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", style: "width: 200px; margin: 0px 4px 0px 4px"}, label_html: {style: "margin: 0px 4px 0px 0px"} %>
-            <%= f.input :duration, input_html: {style: "width: 70px; margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 10px"} %>
+            <%= f.input :duration, input_html: {style: "width: 70px; margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 10px"}, label: "Duration (min)" %>
           </div>
           <%= f.input :comment, wrapper_html:{style: "margin: 6px 0px 10px 0px"} %>
           <%= abymize(:game_session_players, f) do |abyme| %>
