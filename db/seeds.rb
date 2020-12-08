@@ -325,7 +325,7 @@ users.each do |user|
     )
   end
   user_library_games_to_lend = ((user.library_games.length)/3).round
-  lend_possibilities = (0..user_library_games_to_lend)
+  lend_possibilities = (1..user_library_games_to_lend)
   number_of_games_to_lend = rand(lend_possibilities)
 
   user.library_games.shuffle.first(number_of_games_to_lend) do |library_game|
