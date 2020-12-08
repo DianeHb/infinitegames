@@ -12,6 +12,13 @@ class GameSessionsController < ApplicationController
     end
   end
 
+  def index
+    @library_game = LibraryGame.find(params[:library_game_id])
+    @game = @library_game.game
+    @game_sessions = @game.game_sessions.where(user: current_user)
+
+  end
+
   private
 
   def game_session_params
