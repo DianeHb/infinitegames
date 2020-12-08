@@ -57,33 +57,47 @@
   <% @game_sessions.each do |game_session| %>
   <div class= "container mt-5">
     <div class="stat-head">
-      <div>
+      <div class="date">
         <h5><%= game_session.date %></h5>
       </div>
-      <div>
+      <div class= "d-flex ">
         <% game_session.game_session_players.each do |game_session_player| %>
-          <div>
+          <div class="players">
             <%= game_session_player.username %>
           </div>
         <% end %>
       </div>
-      <div>
+      <div class="duration">
         <h5><%= game_session.duration %></h5>
       </div>
     </div>
-  <div>
-    <% game_session.game_session_players.each do |game_session_player| %>
-      <ul>
-        <li>
-          <%= game_session_player.winner %>
-          <%= game_session_player.username  %>
-          <%= game_session_player.score  %>
-        </li>
-      </ul>
-    <% end %>
-    <%= game_session.comment %>
+    <div class="game-session-players">
+      <div class="game-stats-container">
+        <% game_session.game_session_players.each do |game_session_player| %>
+          <div class="game-stat">
+            <ul>
+              <li>
+                <div class="game-players">
+                  <div class="player">
+                  <% if game_session_player.winner == true %>
+                    <%= image_tag("Library_Games_Show/winner.png") %>
+                    <% end %>
+                  </div>
+                  <div class="username">
+                    <%= game_session_player.username  %>
+                  </div>
+                  <div class="score">
+                    <%= game_session_player.score  %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+        <p class= "comment"><%= game_session.comment %></p>
+    </div>
   </div>
- </div>
  </div>
   <% end %>
 </div>
