@@ -10,9 +10,9 @@ class User < ApplicationRecord
   has_many :guests, dependent: :destroy
 
   def friends
-    User.joins("INNER JOIN friendships ON users.id = friendships.friend1_id OR users.id = friendships.friend2_id").
-      where(friendships: { status: 'accepted' }).
-      where.not(id: id) # Don't want to get your id back
+    friendships = Friendship.where(status: 'accepted').where('friend1_id = :id OR friend2_id = :id', id: id)
+    user_ids   = friendships.pluck(:friend1_id) + friendships.pluck(:friend2_id)
+    User.where.not(id: id).where(id: user_ids)
   end
 
   # def friends

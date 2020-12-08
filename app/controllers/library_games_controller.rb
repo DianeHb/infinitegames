@@ -16,4 +16,11 @@ class LibraryGamesController < ApplicationController
     end
   end
 
+  def show
+    @game = LibraryGame.find(params[:id])
+    @game_session = GameSession.new
+    @game_session_player = GameSessionPlayer.new
+    @friends = [current_user] + current_user.friends.order(:first_name, :last_name)
+  end
+
 end
