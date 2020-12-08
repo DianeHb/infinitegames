@@ -3,13 +3,13 @@
   color: white;
   background:$primary;
   margin:3px;
-  padding: 8px 20px 12px 20px;
+  padding: 10px 20px 10px 20px;
   border-radius: 25px;
   transition: background 0.3s ease;
   box-shadow: 0 2px 0 rgba($color:$dark-primary, $alpha: 1.0);
 }
 
-.btn-secondary {
+.btn-secondary-navbar {
   font-family:'Nerko One';
   color:$primary;
   background:$light-blue;
@@ -23,4 +23,14 @@
   color: white;
   background:$primary;
   border: $light-primary solid,
+}
+
+.btn-secondary {
+  font-family:'Nerko One';
+  color:$primary;
+  background:white;
+  padding: 6px 20px 10px 20px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  border:solid;
 }

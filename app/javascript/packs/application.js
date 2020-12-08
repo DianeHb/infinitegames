@@ -24,6 +24,9 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { dynamicRating } from "../channels/starsInReviewForm";
+
+dynamicRating();
 import "../plugins/flatpickr"
 
 // Internal imports, e.g:
