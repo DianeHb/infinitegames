@@ -21,8 +21,9 @@ class LibraryGamesController < ApplicationController
 
     @game_session   = GameSession.new
     @game_session_player = GameSessionPlayer.new
-    @friends = [current_user] + current_user.friends.order(:first_name, :last_name)
+    @players_possibilities = [current_user] + current_user.friends.order(:first_name, :last_name)
     @friends_lend = current_user.friends.order(:first_name, :last_name)
+    @guests_lend  = current_user.guests.order(:name)
 
 
     @review         = Review.new
@@ -36,6 +37,19 @@ class LibraryGamesController < ApplicationController
 
   def lend
     @game           = current_user.library_games.find(params[:id])
+    @game.update(game_params)
     @game.borrowed  = true
+    if @game.save
+      redirect_to library_game_path(@game)
+    else
+      redirect_to library_game_path(@game) #RENDER LA MODAL ?
+    end
   end
+
+  private
+
+  def game_params
+    params.require(:library_game).permit(:borrower_id, :borrower_type, :borrowed_date)
+  end
+
 end

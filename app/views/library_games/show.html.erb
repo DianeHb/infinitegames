@@ -36,13 +36,19 @@
         <% end %>
         <%= @game.game.categories[nb_categories - 1].name %>
       </p>
-      <!-- Button trigger modal -->
+      <!-- Button trigger modal Game Session -->
       <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
         Add a Game Session
       </button>
-      <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameLendModal">
-        Lend my Game
-      </button>
+      <!-- Button trigger modal Lend Game -->
+      <% if @game.borrowed %>
+        <% borrower = @game.borrower_type == "User" ? @game.borrower.first_name : @game.borrower.name %>
+       <em>You lend this game to <%=borrower%> on <%= @game.borrowed_date  %></em>
+      <% else %>
+        <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameLendModal">
+          Lend my Game
+        </button>
+      <% end %>
     </div>
   </div>
 </div>
@@ -155,7 +161,7 @@
           <%= abymize(:game_session_players, f) do |abyme| %>
             <%= abyme.records %> <!-- Already existing ones -->
             <%= new_records_for(:game_session_players, f) do |p| %>
-              <%= render "abyme/game_session_player_fields", f: p, friends: @friends %>
+              <%= render "abyme/game_session_player_fields", f: p, friends: @players_possibilities %>
             <% end %>
             <%= add_association content: "Add a player", tag: :div, html: { id: "AddPlayer" } %> <!-- Add a new form to add player -->
           <% end %>
@@ -177,9 +183,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for (@game, url: lend_library_game_path(@game), method: :patch } do |f| %>
+        <%= simple_form_for(@game, url: lend_library_game_path(@game), html: { method: :patch }) do |f| %>
           <div class="form-inline mb-2">
-            <%= f.association :borrower, collection: @friends_lend, label_method: :first_name, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+            <%= f.association :borrower, as: :grouped_select, collection: [["Friends", @friends_lend], ["Guests", @guests_lend]], label_method: :first_name, group_method: :last, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
             <%= f.hidden_field :borrower_type, {value: "User"} %>
             <%= f.input :borrowed_date, as: :string, required: false, label: "Date", input_html: { class: "datepicker", style: "width: 200px; margin: 0px 4px 0px 4px" }, label_html: { style: "margin: 0px 4px 0px 0px" } %>
           </div>
