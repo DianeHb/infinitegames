@@ -23,4 +23,9 @@ class LibraryGamesController < ApplicationController
     @friends = [current_user] + current_user.friends.order(:first_name, :last_name)
   end
 
+  def lend
+    @game = LibraryGame.find(params[:id])
+    @game.borrowed = true
+  end
+
 end
