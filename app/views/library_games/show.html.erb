@@ -37,18 +37,20 @@
         <%= @game.game.categories[nb_categories - 1].name %>
       </p>
       <!-- Button trigger modal Game Session -->
-      <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
+      <div><button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
         Add a Game Session
-      </button>
+      </button></div>
       <!-- Button trigger modal Lend Game -->
-      <% if @game.borrowed %>
-        <% borrower = @game.borrower_type == "User" ? @game.borrower.first_name : @game.borrower.name %>
-       <em>You lend this game to <%=borrower%> on <%= @game.borrowed_date  %></em>
-      <% else %>
-        <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameLendModal">
-          Lend my Game
-        </button>
-      <% end %>
+      <div>
+        <% if @game.borrowed %>
+          <% borrower = @game.borrower_type == "User" ? @game.borrower.first_name : @game.borrower.name %>
+        <em>You lend this game to <%=borrower%> on <%= @game.borrowed_date  %></em>
+        <% else %>
+          <button type="button" class="btn-secondary" data-toggle="modal" data-target="#gameLendModal">
+            Lend my Game
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
