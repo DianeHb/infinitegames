@@ -1,0 +1,12 @@
+<div class="form-inline pb-1">
+  <%= f.association :player, collection: @friends, label_method: :first_name, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+  <%= f.hidden_field :player_type, {value: "User"} %>
+  <%= f.input :score, input_html: {style: "width: 70px; margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+  <div class="custom-control custom-checkbox" style="padding-left: 0px">
+    <%= f.input :winner, input_html: {style: "margin: 0px 4px 0px 4px", class: "custom-control-input"}, label_html: {style: "margin: 0px 10px 0px 0px", class: "custom-control-label"} %>
+  </div>
+  <%= f.hidden_field :_destroy %> <!-- Useful if we want to be able to destroy a player -->
+  <%= remove_association(tag: :div) do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+</div>
