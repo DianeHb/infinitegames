@@ -36,10 +36,10 @@
         <% end %>
         <%= @game.categories[nb_categories - 1].name %>
       </p>
-      <% if  current_user.library_games.where("game_id=#{@game.id}") != [] %>
-      <em>You already have this game.</em>
+      <% if user_signed_in? && current_user.library_games.where("game_id=#{@game.id}") != [] %>
+        <em>You already have this game.</em>
       <% else %>
-      <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary"%>
+        <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary"%>
       <% end %>
     </div>
   </div>
