@@ -382,6 +382,7 @@ users.each do |user|
       winners = game_session.game_session_players.where("score=#{max_score}")
       winners.each do |winner_player|
         winner_player.winner = true
+        winner_player.save!
       end
 
     end
