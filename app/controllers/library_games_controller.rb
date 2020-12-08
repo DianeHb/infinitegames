@@ -19,9 +19,10 @@ class LibraryGamesController < ApplicationController
   def show
     @game           = current_user.library_games.find(params[:id])
 
-    @game_session = GameSession.new
+    @game_session   = GameSession.new
     @game_session_player = GameSessionPlayer.new
     @friends = [current_user] + current_user.friends.order(:first_name, :last_name)
+    @friends_lend = current_user.friends.order(:first_name, :last_name)
 
 
     @review         = Review.new
@@ -34,7 +35,7 @@ class LibraryGamesController < ApplicationController
   end
 
   def lend
-    @game = LibraryGame.find(params[:id])
-    @game.borrowed = true
+    @game           = current_user.library_games.find(params[:id])
+    @game.borrowed  = true
   end
 end
