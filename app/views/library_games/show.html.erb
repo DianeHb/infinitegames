@@ -93,12 +93,33 @@
         <div class="podium-place">
           <div class="place">
             <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <% if @top_player_2.player_type == "User"%>
+              <%= image_tag @top_player_2.player.avatar_url, class: "avatar podium-pic" %>
+            <% else %>
+              <div class= "avatar-guest-podium podium-pic" >
+                <%= @top_player_2.username[0].capitalize %>
+             </div>
+           <% end %>
           </div>
           <div class="place">
             <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
+              <% if @top_player_1.player_type == "User"%>
+                <%= image_tag @top_player_1.player.avatar_url, class: "avatar podium-pic" %>
+              <% else %>
+                <div class= " avatar-guest-podium podium-pic" >
+                  <%= @top_player_1.username[0].capitalize %>
+              </div>
+            <% end %>
           </div>
           <div class="place">
             <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
+            <% if @top_player_3.player_type == "User"%>
+                <%= image_tag @top_player_3.player.avatar_url, class: "avatar podium-pic" %>
+            <% else %>
+              <div class= " avatar-guest-podium podium-pic">
+                  <%= @top_player_3.username[0].capitalize %>
+              </div>
+            <% end %>
           </div>
         </div>
         <% if @user_review.present? %>
@@ -146,33 +167,38 @@
     </div>
 
     <div class="library-games-stats">
-      <h2 class="pt-4">My statistics</h2>
+      <h2 class="pt-4 pb-4">My statistics</h2>
       <div class="statistics">
           <div class="statistics-picto">
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-              <p >Total duration of the game session</p>
+                <p class= "statistic_num"> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
+                <p class="statistic-title mb-0" >Total duration of the game session</p>
             </div>
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-              <p class="statistic-title">Average game session time</p>
+                <p class= "statistic_num"> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
+                <p class="statistic-title mb-0">Average game session time</p>
             </div>
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-              <p >Victories</p>
+                <p class= "statistic_num"> <strong> <%= @victories_count %> </strong> </p>
+                <p class="statistic-title mb-0" >Victories</p>
             </div>
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-              <p class="statistic-title"> Games sessions in the month</p>
+                <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
+                <p class="statistic-title mb-0"> Games sessions in the month</p>
             </div>
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-              <p class="statistic-title">Total duration of the game session</p>
+                <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
+                <p class="statistic-title mb-0"> Games sessions in the month</p>
             </div>
           </div>
         </div>

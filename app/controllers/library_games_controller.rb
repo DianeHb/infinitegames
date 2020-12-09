@@ -32,6 +32,35 @@ class LibraryGamesController < ApplicationController
 
     @user_review    = @reviews.find_by(user_id: current_user.id)
 
+
+    #For th poduim and the statistics
+
+    @game_sessions = @game.game.game_sessions.where(user: current_user).order(date: :desc)
+
+    @total_duration   = @game_sessions.sum(:duration)
+    @average_duration = @game_sessions.average(:duration).to_i
+
+    @victories_count  = GameSessionPlayer.where(
+      game_session_id: @game_sessions.pluck(:id),
+      player_id: current_user.id,
+      player_type: "User",
+      winner: true
+    ).count
+
+    @game_sessions__count_in_month = @game_sessions.where(date: Date.today.beginning_of_month..Date.today).count
+
+    @game_sessions__count_in_year = @game_sessions.where(date: Date.today.beginning_of_year..Date.today).count
+
+    @top_3_winners = GameSessionPlayer.select("player_id, player_type, count(id) AS won_sessions_count")
+      .where(game_session_id: @game_sessions.pluck(:id), winner: true)
+      .group("player_id, player_type")
+      .order(won_sessions_count: :desc)
+      .limit(3)
+
+    @top_player_1, @top_player_2, @top_player_3 = @top_3_winners
+
+
+
   end
 
   def lend
