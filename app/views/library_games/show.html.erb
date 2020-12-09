@@ -8,7 +8,7 @@
   <div class="game_borrower_picture">
     <% if @game.borrowed %>
       <% if @game.borrower_type == "User" %>
-        <%= image_tag @game.borrower.avatar_url, class: "avatar-large" %>
+        <%= image_tag @game.borrower.avatar_url, class: "avatar-borrower-large" %>
       <% else %>
         <div class="avatar-guest-large"><%= @game.borrower.name.first %></div>
       <% end %>

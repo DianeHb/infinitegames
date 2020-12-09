@@ -4,6 +4,9 @@
 }
 
 .game_borrower_picture {
+  position: absolute;
+  top: 100px;
+  left: 50px;
 }
 
 .blob_show {
@@ -18,6 +21,7 @@
   height: 36em;
   left: -8em;
   position: relative;
+  z-index: -1;
   img {
     mix-blend-mode: multiply;
     max-width: 600px;
