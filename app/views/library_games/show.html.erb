@@ -24,6 +24,15 @@
       <div class="blob-right-show-library">
         <%= image_tag("Game_Show/blob_show_right.svg") %>
       </div>
+      <div class="game_borrower_picture">
+        <% if @game.borrowed %>
+          <% if @game.borrower_type == "User" %>
+            <%= image_tag @game.borrower.avatar_url, class: "avatar-borrower-large" %>
+          <% else %>
+            <div class="avatar-guest-large"><%= @game.borrower.name.first %></div>
+          <% end %>
+        <% end %>
+      </div>
       <div class="blob_show"><%= image_tag @game.game.image_url %></div>
       <div class="main_infos">
         <div class="colored_infos">

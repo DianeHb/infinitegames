@@ -3,6 +3,12 @@
   display: flex;
 }
 
+.game_borrower_picture {
+  position: absolute;
+  top: 110px;
+  left: 100px;
+}
+
 .blob_show {
   background-image: asset-url('Game_Show/blob_show.svg');
   background-position: bottom;
@@ -15,6 +21,7 @@
   height: 36em;
   left: -8em;
   position: relative;
+  z-index: -1;
   img {
     mix-blend-mode: multiply;
     max-width: 600px;
