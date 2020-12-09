@@ -1,7 +1,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+justify-content: center;
   grid-gap: 16px;
   padding: 0 70px;
   margin-bottom: 40px;
@@ -11,7 +11,7 @@
   border-radius: 20px;
   display: block;
   position: relative;
-  width:250Px;
+  width:300Px;
   -webkit-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   -moz-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
@@ -23,7 +23,7 @@
   background-image: asset-url('blob.svg');
   background-repeat: no-repeat;
   background-position: center;
-  height: 290px;
+  height: 320px;
   display: flex;
 }
 
@@ -49,7 +49,6 @@
 .card-game-linked:hover{
   text-decoration: none !important;
   transform: scale(1.05);
-  transition: 0.8s;
 }
 
 .blob-left-games {
@@ -66,24 +65,3 @@
 
 // A voir plus tard pour le blob
 // "style="transform: rotate(<%= rand 360 %>deg); -ms-transform: rotate(<%= rand 360 %>deg);"
-
-.card-game-linked {
-  transition: 0.8s;
-}
-
-.card-infos {
-  justify-content: space-around;
-  align-items: center;
-}
-
-.home-categories {
-
-}
-
-.home-categories p {
-font-size: 11px;
-width: 120px;
-margin-bottom: 15px;
-color: $orange;
-text-align: center;
-}

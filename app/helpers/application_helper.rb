@@ -8,8 +8,4 @@ module ApplicationHelper
     end
     return desc
   end
-
-  def game_short_description_library(game)
-    sanitize(@game.game.description)[0..700]+"..."
-  end
 end
