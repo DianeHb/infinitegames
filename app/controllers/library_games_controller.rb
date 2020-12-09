@@ -45,7 +45,7 @@ class LibraryGamesController < ApplicationController
     end
   end
 
-  def return
+  def retrieve
     @game           = current_user.library_games.find(params[:id])
     @game.borrowed  = false
     @game.borrower  = nil
