@@ -19,13 +19,12 @@
   </div>
   <div class="library-index">
     <div class="search-page">
-      <div class="search-title">
+      <div class="lent-title d-flex justify-content-center">
         <%= image_tag("dice-search.png") %>
         <h2 class="text-center">Lent Games</h2>
         <%= image_tag("dice-search.png") %>
       </div>
     </div>
-
     <div class="cards">
       <% @lent_games.each do |library_game| %>
         <%= link_to library_game_path(library_game), class: "card-game-linked" do %>
