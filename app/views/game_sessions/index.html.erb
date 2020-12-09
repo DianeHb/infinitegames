@@ -44,31 +44,31 @@
 
         <div class ="statistic-item">
           <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-           <p> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
+           <p class= "statistic_num"> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
           <p class="statistic-title mb-0" >Total duration of the game session</p>
         </div>
 
         <div class ="statistic-item">
           <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-          <p> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
+          <p class= "statistic_num"> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
           <p class="statistic-title mb-0">Average game session time</p>
         </div>
 
         <div class ="statistic-item">
           <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p> <strong> <%= @victories_count %> </strong> </p>
+            <p class= "statistic_num"> <strong> <%= @victories_count %> </strong> </p>
           <p class="statistic-title mb-0" >Victories</p>
         </div>
 
         <div class ="statistic-item">
           <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
+            <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
           <p class="statistic-title mb-0"> Games sessions in the month</p>
         </div>
 
         <div class ="statistic-item">
           <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
+            <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
           <p class="statistic-title mb-0">Game sessions in the year</p>
         </div>
       </div>
@@ -81,20 +81,23 @@
 
 <div data-toggle="collapse" href="#collapseMyStatistics" role="button" aria-expanded="true" aria-controls="collapseMyStatistics">
   <% @game_sessions.each do |game_session| %>
-  <div class= "container mt-5">
+  <div class= "container mt-1">
     <div class="stat-head">
       <div class="date">
         <h5><%= game_session.date %></h5>
       </div>
-      <div class= "d-flex ">
+      <div class= "d-flex align-items-center ">
+      <i class="fas fa-users"></i>
+
         <% game_session.game_session_players.each do |game_session_player| %>
           <div class="players">
-            <%= game_session_player.username %>
+             <%= game_session_player.username %>
           </div>
         <% end %>
       </div>
-      <div class="duration">
-        <h5><%= game_session.duration %></h5>
+      <div class="duration d-flex align-items-center">
+        <i class="far fa-clock"></i>
+        <h5 class = "m-0 ml-2"><%= game_session.duration %></h5>
       </div>
     </div>
     <div class="game-session-players collapse" id="collapseMyStatistics">
@@ -103,16 +106,16 @@
           <div class="game-stat">
             <ul>
               <li>
-                <div class="game-players">
-                  <div class="player">
+                <div class="game-players row">
+                  <div class="player col-2 ">
                   <% if game_session_player.winner == true %>
                     <%= image_tag("Library_Games_Show/winner-icon.png") %>
                     <% end %>
                   </div>
-                  <div class="username">
+                  <div class="username col-2">
                     <%= game_session_player.username  %>
                   </div>
-                  <div class="score">
+                  <div class="score col-2">
                     <%= game_session_player.score  %>
                   </div>
                 </div>
@@ -121,7 +124,7 @@
           </div>
         <% end %>
       </div>
-        <p class= "comment"><%= game_session.comment %></p>
+        <p class= "comment col-6"><%= game_session.comment %></p>
     </div>
   </div>
  </div>

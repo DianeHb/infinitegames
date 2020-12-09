@@ -34,15 +34,15 @@
       display: flex;
 
       .player {
-        margin-right: 4em;
+        margin-right: 3em;
       }
 
       .username {
-        margin-right: 4em;
+        margin-right: 3em;
       }
 
       .score {
-        margin-right: 4em;
+        //margin-right: 4em;
       }
     }
   }
@@ -55,4 +55,8 @@
 
 .podium-pic{
   align-self: center;
+}
+
+.statistic_num{
+  font-size: 36px;
 }
