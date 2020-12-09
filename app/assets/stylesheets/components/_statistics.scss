@@ -1,0 +1,62 @@
+.stat-head{
+  display: flex;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: $light-blue;
+
+  .date {
+    margin: 0 10em;
+    margin-left: 1em;
+  }
+
+  .players {
+    margin: 0 1em;
+  }
+
+  .duration {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+
+.game-session-players {
+  background: $light-primary;
+  display: flex;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    padding: 1em 2em;
+    margin: 0;
+
+    .game-players {
+      display: flex;
+
+      .player {
+        margin-right: 3em;
+      }
+
+      .username {
+        margin-right: 3em;
+      }
+
+      .score {
+        //margin-right: 4em;
+      }
+    }
+  }
+}
+.comment {
+  padding: 1em;
+  margin: 1em;
+}
+
+
+.podium-pic{
+  align-self: center;
+}
+
+.statistic_num{
+  font-size: 36px;
+}

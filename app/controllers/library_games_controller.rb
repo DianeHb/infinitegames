@@ -19,12 +19,11 @@ class LibraryGamesController < ApplicationController
   def show
     @game           = current_user.library_games.find(params[:id])
 
-    @game_session   = GameSession.new
-    @game_session_player = GameSessionPlayer.new
-    @players_possibilities = [current_user] + current_user.friends.order(:first_name, :last_name)
-    @friends_lend = current_user.friends.order(:first_name, :last_name)
-    @guests_lend  = current_user.guests.order(:name)
+    @game_session          = GameSession.new
+    @game_session_player   = GameSessionPlayer.new
 
+    @friends = current_user.friends.order(:first_name, :last_name)
+    @guests  = current_user.guests.order(:name)
 
     @review         = Review.new
     @reviews        = @game.game.reviews
@@ -44,6 +43,19 @@ class LibraryGamesController < ApplicationController
     else
       redirect_to library_game_path(@game) #RENDER LA MODAL ?
     end
+  end
+
+  def retrieve
+    @game           = current_user.library_games.find(params[:id])
+    @game.borrowed  = false
+    @game.borrower  = nil
+    @game.borrowed_date = nil
+    @game.save
+    redirect_to library_game_path(@game)
+  end
+
+  def lent
+    @lent_games = current_user.library_games.where("borrowed=true")
   end
 
   private

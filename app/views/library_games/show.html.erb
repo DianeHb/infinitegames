@@ -199,7 +199,7 @@
             </div>
           </div>
         </div>
-
+      
         <!-- Modal GameLend -->
         <div class="modal fade" id="gameLendModal" tabindex="-1" role="dialog" aria-labelledby="gameLendModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -213,8 +213,8 @@
               <div class="modal-body">
                 <%= simple_form_for(@game, url: lend_library_game_path(@game), html: { method: :patch }) do |f| %>
                   <div class="form-inline mb-2">
-                    <%= f.association :borrower, as: :grouped_select, collection: [["Friends", @friends_lend], ["Guests", @guests_lend]], label_method: :first_name, group_method: :last, input_html: { style: "margin: 0px 4px 0px 4px" }, wrapper_html: { style: "margin: 0px 4px 0px 4px" } %>
-                    <%= f.hidden_field :borrower_type, { value: "User" } %>
+                    <%= f.association :borrower, as: :grouped_select, collection: [["Friends", @friends], ["Guests", @guests]], label_method: :first_name, group_method: :last, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+                    <%= f.hidden_field :borrower_type, {value: "User"} %>
                     <%= f.input :borrowed_date, as: :string, required: false, label: "Date", input_html: { class: "datepicker", style: "width: 200px; margin: 0px 4px 0px 4px" }, label_html: { style: "margin: 0px 4px 0px 0px" } %>
                   </div>
                   <%= f.submit "Lend", class: "btn-primary float-right" %>
@@ -226,3 +226,4 @@
     </div>
   </div>
 </div>
+

@@ -34,8 +34,10 @@
   font-family:'Nerko One';
   color:$primary;
   background:white;
-  padding: 6px 20px 10px 20px;
-  border-radius: 20px;
+  margin:3px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 25px;
   transition: background 0.3s ease;
   border:solid;
+  box-shadow: 0 2px 0 rgba($color:$dark-primary, $alpha: 1.0);
 }

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     member do
       patch :lend
+      patch :retrieve
     end
     resources :game_sessions, only: [:index, :create]
   end
