@@ -1,7 +1,6 @@
 .vertical-navbar {
   background-color: $dark-blue;
   height: auto;
-  z-index: 10;
 }
 
 .index-page {
@@ -49,7 +48,7 @@
     background-color: white ;
     -webkit-mask: url(vertical-navbar/search-icon.svg) no-repeat center;
     mask: url(vertical-navbar/search-icon.svg) no-repeat center;
-  }
+ }
 }
 
 .navbar-icon-3 {
@@ -86,11 +85,4 @@
     -webkit-mask: url(vertical-navbar/friends.svg) no-repeat center;
     mask: url(vertical-navbar/friends.svg) no-repeat center;
   }
-}
-
-.actives {
-  background-color: rgb(102, 174, 184) ;
-  &:hover {
-    background-color: rgb(102, 174, 184);
-}
 }
