@@ -189,7 +189,7 @@
                   <%= abymize(:game_session_players, f) do |abyme| %>
                     <%= abyme.records %> <!-- Already existing ones -->
                     <%= new_records_for(:game_session_players, f) do |p| %>
-                      <%= render "abyme/game_session_player_fields", f: p, friends: @friends, guests: @guests, user: current_user %>
+                      <%= render "abyme/game_session_player_fields", f: p, friends: @players_possibilities %>
                     <% end %>
                     <%= add_association content: "Add a player", tag: :div, html: { id: "AddPlayer" } %> <!-- Add a new form to add player -->
                   <% end %>
@@ -199,7 +199,7 @@
             </div>
           </div>
         </div>
-
+      
         <!-- Modal GameLend -->
         <div class="modal fade" id="gameLendModal" tabindex="-1" role="dialog" aria-labelledby="gameLendModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -226,3 +226,4 @@
     </div>
   </div>
 </div>
+
