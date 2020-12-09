@@ -54,6 +54,10 @@ class LibraryGamesController < ApplicationController
     redirect_to library_game_path(@game)
   end
 
+  def lent
+    @lent_games = current_user.library_games.where("borrowed=true")
+  end
+
   private
 
   def game_params

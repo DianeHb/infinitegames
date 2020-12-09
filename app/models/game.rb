@@ -15,5 +15,4 @@ class Game < ApplicationRecord
   validates :min_playtime, presence: true
   validates :max_playtime, presence: true
   validates :image_url, presence: true
-
 end

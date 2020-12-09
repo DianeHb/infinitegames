@@ -4,18 +4,18 @@
     <div class="carousel-inner">
       <div class="carousel-item active carousel-height text-center">
         <%= image_tag("Homepage/home-1.png", class: "d-block slider-image", alt: "First slide") %>
-        <h2 class="mb-4">Try to create your own library game for a better life ! </h2>
-        <%= link_to "I CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
+        <h2 class="mb-4">Try to create your own games library for a better life ! </h2>
+        <%= link_to "CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
       </div>
       <div class="carousel-item text-center">
         <%= image_tag("Homepage/home-3.png", class: "d-block w-60 slider-image", alt: "Second slide") %>
-        <h2 class="mb-4">Find the ideal boarg game for your party ! </h2>
+        <h2 class="mb-4">Find the ideal board game for your party ! </h2>
         <%= link_to "FIND A GAME", games_path, class: "btn-primary btn-carroussel" %>
       </div>
       <div class="carousel-item text-center">
         <%= image_tag("Homepage/home-2.png", class: "d-block w-60 slider-image", alt: "Second slide") %>
         <h2 class="mb-4">Register all your games sessions in one place ! </h2>
-        <%= link_to "I CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
+        <%= link_to "CREATE MY GAMES LIBRARY", new_user_session_path, class: "btn-primary btn-carroussel" %>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -43,19 +43,19 @@
 
       <div class="feature">
         <%= image_tag("Homepage/save.png", style: "height:200px;margin-bottom:20px;") %>
-        <p>You can <span class="highlight"> save all your your game sessions </span>in
-        infinite games for all your games. Even even those that do not belong to you.  </p>
+        <p>You can <span class="highlight"> save all your game sessions </span>in
+        infinite games for all your games. Even those that do not belong to you.  </p>
       </div>
 
       <div class="feature">
         <%= image_tag("Homepage/quest.png", style: "height:200px; margin-bottom:20px;") %>
         <p>You can <span class="highlight">find the ideal board game for your party </span>in your
-        library games, in that of your friends or in the infinite games library.</p>
+        games library, in your friends ones or in the infinite games library.</p>
       </div>
 
       <div class="feature">
         <%= image_tag("Homepage/stat.png", style: "height:200px;margin-bottom:20px;") %>
-        <p>You can <span class="highlight"> see your session game statistics </span>for each game you have played.
+        <p>You can <span class="highlight"> see your game session statistics </span>for each game you have played.
         You will know who is the best to play, how many games you play in the year, ...  </p>
       </div>
     </div>
@@ -81,8 +81,19 @@
           <img class="image-card align-center" src= <%= image_path game.image_url %> >
         </div>
         <div class="text-center">
-          <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
           <h3><%= game.name %></h3>
+          <div class="d-flex card-infos">
+            <div class="home-stars">
+              <p><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
+            </div>
+            <div class="home-categories">
+              <p>  <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
+              <% game.categories.first(nb_categories - 1).each do |category| %>
+                <%= category.name %> •
+              <% end %>
+              <%= game.categories[nb_categories - 1].name %></p>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>
