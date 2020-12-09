@@ -37,6 +37,8 @@ class GameSessionsController < ApplicationController
       .order(won_sessions_count: :desc)
       .limit(3)
 
+    @top_player_1, @top_player_2, @top_player_3 = @top_3_winners
+
   end
 
 
