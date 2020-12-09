@@ -1,80 +1,104 @@
-<div class="blob-left-games">
-  <%= image_tag("Games_index/blob-search-left.png") %>
-</div>
-<div class="blob-right-games">
-  <%= image_tag("Games_index/blob-search-right.png") %>
-</div>
-<div class="search-page">
-  <div class="search-title">
-    <%= image_tag("dice-search.png") %>
-    <h2>Find your ideal board game !</h2>
-    <%= image_tag("dice-search.png") %>
-  </div>
-</div>
-<%= render "shared/personnal_search" %>
+<div class="index-page">
+  <div class="vertical-navbar">
+      <%= link_to library_games_path, class: "card-game-linked" do %>
+        <div class="navbar-icon-1"></div>
+      <% end %>
 
-<div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseMyGames" role="button" aria-expanded="true" aria-controls="collapseMyGames" >
-<h2> Results in my library games </h2>
-</div>
-<div class="collapse show" id="collapseMyGames" >
-  <div class="cards">
-    <% @my_games.each do |game| %>
-    <%= link_to library_games_path(game), class:"card-game-linked" do %>
-    <div class= "card">
-      <div class= "blob ">
-        <img class="image-card align-center" src= <%= image_path game.image_url %> >
+      <%= link_to search_path, class: "navbar-link" do %>
+        <div class="navbar-icon-2 active"></div>
+      <% end %>
+
+      <%= link_to search_path, class: "navbar-link" do %>
+        <div class="navbar-icon-3"></div>
+      <% end %>
+
+      <%= link_to search_path, class: "navbar-link" do %>
+        <div class="navbar-icon-4"></div>
+      <% end %>
+  </div>
+  <div class="library-search-results">
+    <div class="search-hero">
+      <div class="blob-left-games">
+        <%= image_tag("Games_index/blob-search-left.png") %>
       </div>
-      <div class="text-center">
-        <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
-        <h3><%= game.name %></h3>
+      <div class="blob-right-games">
+        <%= image_tag("Games_index/blob-search-right.png") %>
+      </div>
+      <div class="search-page">
+        <div class="search-title">
+          <%= image_tag("dice-search.png") %>
+          <h2>Find your ideal board game !</h2>
+          <%= image_tag("dice-search.png") %>
+        </div>
       </div>
     </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-
-<div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseFriend" role="button" aria-expanded="false" aria-controls="collapseFriend">
-<h2> Results in my friends games library </h2>
-</div>
-<div class="collapse" id="collapseFriend" >
-  <div class="cards">
-    <% @friend_games.each do |game| %>
-    <%= link_to game_path(game), class:"card-game-linked" do %>
-    <div class= "card">
-      <div class= "blob ">
-        <img class="image-card align-center" src= <%= image_path game.image_url %> >
+    <%= render "shared/personnal_search" %>
+    <div class="results">
+      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseMyGames" role="button" aria-expanded="true" aria-controls="collapseMyGames" >
+      <h2> Results in my library games</h2>
       </div>
-      <div class="text-center">
-        <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
-        <h3><%= game.name %></h3>
+      <div class="collapse show" id="collapseMyGames" >
+        <div class="cards">
+          <% @my_games.each do |game| %>
+          <%= link_to library_games_path(game), class: "card-game-linked" do %>
+          <div class= "card">
+            <div class= "blob ">
+              <img class="image-card align-center" src= <%= image_path game.image_url %> >
+            </div>
+            <div class="text-center">
+              <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
+              <h3><%= game.name %></h3>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseFriend" role="button" aria-expanded="false" aria-controls="collapseFriend">
+        <h2> Results in my friends games library </h2>
+      </div>
+      <div class="collapse" id="collapseFriend" >
+        <div class="cards">
+          <% @friend_games.each do |game| %>
+          <%= link_to game_path(game), class: "card-game-linked" do %>
+          <div class= "card">
+            <div class= "blob ">
+              <img class="image-card align-center" src= <%= image_path game.image_url %> >
+            </div>
+            <div class="text-center">
+              <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
+              <h3><%= game.name %></h3>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseGames" role="button" aria-expanded="false" aria-controls="collapseGames">
+      <h2> Results in InfiniteGames </h2>
+      </div>
+
+      <div class="collapse" id="collapseGames" >
+        <div class="cards">
+          <% @games.each do |game| %>
+          <%= link_to game_path(game), class: "card-game-linked" do %>
+          <div class= "card">
+            <div class= "blob ">
+              <img class="image-card align-center" src= <%= image_path game.image_url %> >
+            </div>
+            <div class="text-center">
+              <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
+              <h3><%= game.name %></h3>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class= "container" style="width: 100px; height: 200px;" >
       </div>
     </div>
-    <% end %>
-    <% end %>
   </div>
-</div>
-
-<div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseGames" role="button" aria-expanded="false" aria-controls="collapseGames">
-<h2> Results in InfiniteGames </h2>
-</div>
-
-<div class="collapse" id="collapseGames" >
-  <div class="cards">
-    <% @games.each do |game| %>
-    <%= link_to game_path(game), class:"card-game-linked" do %>
-    <div class= "card">
-      <div class= "blob ">
-        <img class="image-card align-center" src= <%= image_path game.image_url %> >
-      </div>
-      <div class="text-center">
-        <p><%= sanitize '<i class="fas fa-star text-info"></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - game.rating_general) %> </p>
-        <h3><%= game.name %></h3>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-<div class= "container" style="width: 100px; height: 200px;" >
 </div>
