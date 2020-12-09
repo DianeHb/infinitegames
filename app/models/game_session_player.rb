@@ -7,9 +7,9 @@ class GameSessionPlayer < ApplicationRecord
   def username
     case self.player_type
     when "User"
-      User.find(self.player_id).username
+      player.username
     when "Guest"
-      Guest.find(self.player_id).name
+      player.name
     end
   end
 
