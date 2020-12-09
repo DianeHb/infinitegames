@@ -35,3 +35,7 @@ h3 {
 a:hover {
   text-decoration: none!important;
 }
+
+::placeholder {
+  color: rgb(209, 209, 209) !important;
+  }

@@ -36,10 +36,20 @@
         <% end %>
         <%= @game.game.categories[nb_categories - 1].name %>
       </p>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
+      <!-- Button trigger modal Game Session -->
+      <div><button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
         Add a Game Session
-      </button>
+      </button></div>
+      <!-- Button trigger modal Lend Game -->
+      <div class="mt-3">
+        <% if @game.borrowed %>
+          <%= link_to "#{@game.borrower.first_name} has returned the game", retrieve_library_game_path(@game), method: :patch, class:"btn-secondary"%>
+        <% else %>
+          <button type="button" class="btn-secondary" data-toggle="modal" data-target="#gameLendModal">
+            Lend my Game
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -132,7 +142,7 @@
     </div>
   <%= link_to "SEE ALL MY STATISTICS", "#", class: "btn-primary" %>
 
-<!-- Modal -->
+<!-- Modal GameSession & GameSessionPlayers -->
 <div class="modal fade" id="gameSessionModal" tabindex="-1" role="dialog" aria-labelledby="gameSessionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -152,11 +162,35 @@
           <%= abymize(:game_session_players, f) do |abyme| %>
             <%= abyme.records %> <!-- Already existing ones -->
             <%= new_records_for(:game_session_players, f) do |p| %>
-              <%= render "abyme/game_session_player_fields", f: p, friends: @friends %>
+              <%= render "abyme/game_session_player_fields", f: p, friends: @friends, guests: @guests, user: current_user %>
             <% end %>
             <%= add_association content: "Add a player", tag: :div, html: { id: "AddPlayer" } %> <!-- Add a new form to add player -->
           <% end %>
           <%= f.submit "Add Session", class: "btn-primary float-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal GameLend -->
+<div class="modal fade" id="gameLendModal" tabindex="-1" role="dialog" aria-labelledby="gameLendModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="gameLendModalLabel">Lend my Game</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@game, url: lend_library_game_path(@game), html: { method: :patch }) do |f| %>
+          <div class="form-inline mb-2">
+            <%= f.association :borrower, as: :grouped_select, collection: [["Friends", @friends], ["Guests", @guests]], label_method: :first_name, group_method: :last, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+            <%= f.hidden_field :borrower_type, {value: "User"} %>
+            <%= f.input :borrowed_date, as: :string, required: false, label: "Date", input_html: { class: "datepicker", style: "width: 200px; margin: 0px 4px 0px 4px" }, label_html: { style: "margin: 0px 4px 0px 0px" } %>
+          </div>
+          <%= f.submit "Lend", class: "btn-primary float-right" %>
         <% end %>
       </div>
     </div>

@@ -27,7 +27,9 @@ import "bootstrap";
 import { dynamicRating } from "../channels/starsInReviewForm";
 
 dynamicRating();
-import "../plugins/flatpickr"
+import {initflatpickr} from "../plugins/flatpickr";
+import { initLendGame } from "../plugins/game_lend"
+import { initGameSession } from "../plugins/game_session"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,6 +37,9 @@ import "../plugins/flatpickr"
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initflatpickr();
+  initLendGame();
+  initGameSession();
 });
 
 import "controllers"

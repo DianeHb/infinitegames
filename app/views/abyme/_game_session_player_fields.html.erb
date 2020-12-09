@@ -1,6 +1,8 @@
 <div class="form-inline pb-1">
-  <%= f.association :player, collection: @friends, label_method: :first_name, input_html: {style: "margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
-  <%= f.hidden_field :player_type, {value: "User"} %>
+  <div class= "selected_player">
+    <%= f.association :player, as: :grouped_select, collection: [["You", [user]],["Friends", friends],["Guests", guests]], label_method: :first_name, group_method: :last, input_html: {style: "margin: 0px 4px 0px 4px", class: "player_select"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
+    <%= f.hidden_field :player_type, {value: "User", class: "player_type"} %>
+  </div>
   <%= f.input :score, input_html: {style: "width: 70px; margin: 0px 4px 0px 4px"}, wrapper_html:{style: "margin: 0px 4px 0px 4px"} %>
   <div class="custom-control custom-checkbox" style="padding-left: 0px">
     <%= f.input :winner, input_html: {style: "margin: 0px 4px 0px 4px", class: "custom-control-input"}, label_html: {style: "margin: 0px 10px 0px 0px", class: "custom-control-label"} %>

@@ -198,6 +198,7 @@ games.each do |game|
     editor:       game["primary_publisher"]["name"],
     creators:     game["artists"].join(', '),
     image_url:    game["image_url"],
+    rules_url:    game["rules_url"],
   )
 
   #Create links with mechanics
@@ -323,11 +324,12 @@ users.each do |user|
       owner: user
     )
   end
+
   user_library_games_to_lend = ((user.library_games.length)/3).round
-  lend_possibilities = (0..user_library_games_to_lend)
+  lend_possibilities = (2..user_library_games_to_lend)
   number_of_games_to_lend = rand(lend_possibilities)
 
-  user.library_games.shuffle.first(number_of_games_to_lend) do |library_game|
+  user.library_games.shuffle.first(number_of_games_to_lend).each do |library_game|
     library_game.borrowed = true
     library_game.borrower = (user.friends + user.guests).sample
     library_game.borrowed_date = Date.new(2020,rand(6..11),rand(1..30))
@@ -382,6 +384,7 @@ users.each do |user|
       winners = game_session.game_session_players.where("score=#{max_score}")
       winners.each do |winner_player|
         winner_player.winner = true
+        winner_player.save!
       end
 
     end
