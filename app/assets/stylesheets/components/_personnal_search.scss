@@ -1,8 +1,24 @@
 .h2-background{
   background-color: $light-blue;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background-color:$light-blue;
   height: 100px;
-  padding-top:50px;
-  margin-bottom: 50px;
+//   padding-top:50px;
+//   margin-bottom: 50px;
+}
+
+
+.search-title-display {
+  display: flex;
+  grid-gap: 16px;
+  justify-content: center;
+
+}
+
+
+.search-page-display {
+  justify-content: center;
+  -webkit-box-shadow: 1px 7px 15px 2px rgba(0,0,0,0.22);
+box-shadow: 1px 7px 15px 2px rgba(0,0,0,0.22);
+  margin-bottom: 2px;
 }

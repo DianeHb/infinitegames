@@ -27,15 +27,16 @@
       <div class="search-page">
         <div class="search-title">
           <%= image_tag("dice-search.png") %>
-          <h2>Find your ideal board game !</h2>
+          <h1>Find your ideal board game !</h1>
           <%= image_tag("dice-search.png") %>
         </div>
       </div>
     </div>
     <%= render "shared/personnal_search" %>
     <div class="results">
-      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseMyGames" role="button" aria-expanded="true" aria-controls="collapseMyGames" >
-      <h2> Results in my library games </h2>
+      <div class= "h2-background text-center search-title-display search-page-display align-items-center" data-toggle="collapse" href="#collapseMyGames" role="button" aria-expanded="true" aria-controls="collapseMyGames" >
+        <h2> Results in my library games </h2>
+        <i class="fas fa-angle-down fa-2x"></i>
       </div>
       <div class="collapse show" id="collapseMyGames" >
         <div class="cards">
@@ -70,8 +71,9 @@
         </div>
       </div>
 
-      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseFriend" role="button" aria-expanded="false" aria-controls="collapseFriend">
-        <h2> Results in my friends games library </h2>
+      <div class= "h2-background text-center search-title-display search-page-display align-items-center" data-toggle="collapse" href="#collapseFriend" role="button" aria-expanded="false" aria-controls="collapseFriend">
+          <h2> Results in my friends games library </h2>
+          <i class="fas fa-angle-down fa-2x"></i>
       </div>
       <div class="collapse" id="collapseFriend" >
         <div class="cards">
@@ -106,8 +108,9 @@
         </div>
       </div>
 
-      <div class= "h2-background text-center search-title search-page" data-toggle="collapse" href="#collapseGames" role="button" aria-expanded="false" aria-controls="collapseGames">
-      <h2> Results in InfiniteGames </h2>
+      <div class= "h2-background text-center search-title-display search-page-display align-items-center" data-toggle="collapse" href="#collapseGames" role="button" aria-expanded="false" aria-controls="collapseGames">
+        <h2> Results in InfiniteGames  </h2>
+        <i class="fas fa-angle-down fa-2x"></i>
       </div>
 
       <div class="collapse" id="collapseGames" >
