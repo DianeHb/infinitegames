@@ -19,27 +19,31 @@
     <div class="game_show_rating mt-3"><%= sanitize '<i class="fas fa-star text-info"></i>' * @game.rating_general %><%= sanitize '<i class="fas fa-star"></i>' * (5 - @game.rating_general) %> <%= @game.reviews.count %> reviews</div>
     <div>
       <h1 class="mt-3"><%= @game.name %></h1>
-      <p class="game_mec_details">
-      <strong>Mechanics: </strong>
-        <% nb_mechanics = @game.mechanics.count < 3 ? @game.mechanics.count : 3 %>
-        <% @game.mechanics.first(nb_mechanics - 1).each do |mechanic| %>
-          <%= mechanic.name %> •
-        <% end %>
-        <%= @game.mechanics[nb_mechanics - 1].name %>
-      </p>
-      <p><%= game_short_description(@game) %></p>
-      <p class="game_cat_details">
-      <strong>Categories: </strong>
-        <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
-        <% @game.categories.first(nb_categories - 1).each do |category| %>
-          <%= category.name %> •
-        <% end %>
-        <%= @game.categories[nb_categories - 1].name %>
-      </p>
-      <% if  current_user.library_games.where("game_id=#{@game.id}") != [] %>
-      <em>You already have this game.</em>
+      <% if @game.mechanics != [] %>
+        <p class="game_mec_details">
+        <strong>Mechanics: </strong>
+          <% nb_mechanics = @game.mechanics.count < 3 ? @game.mechanics.count : 3 %>
+          <% @game.mechanics.first(nb_mechanics - 1).each do |mechanic| %>
+            <%= mechanic.name %> •
+          <% end %>
+          <%= @game.mechanics[nb_mechanics - 1].name %>
+        </p>
+      <% end %>
+      <p><%= sanitize (game_short_description(@game)) %></p>
+      <% if @game.categories != [] %>
+        <p class="game_cat_details">
+        <strong>Categories: </strong>
+          <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
+          <% @game.categories.first(nb_categories - 1).each do |category| %>
+            <%= category.name %> •
+          <% end %>
+          <%= @game.categories[nb_categories - 1].name %>
+        </p>
+      <% end %>
+      <% if user_signed_in? && current_user.library_games.where("game_id=#{@game.id}") != [] %>
+        <em>You already have this game.</em>
       <% else %>
-      <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary"%>
+        <%= link_to  '+ ADD TO MY GAMES LIBRARY', game_library_games_path(@game), method: :post, class:"btn-primary"%>
       <% end %>
     </div>
   </div>
