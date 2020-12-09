@@ -6,7 +6,8 @@ text-align: center;
 
 .library-games-stats {
   background-color: $yellow;
-text-align: center;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 
@@ -27,6 +28,7 @@ text-align: center;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+  padding: 1em;
 }
 
 .statistic-item {
@@ -35,7 +37,6 @@ text-align: center;
 }
 
 .statistic-title {
-  width: 80%;
   margin: auto;
 }
 
@@ -46,5 +47,7 @@ text-align: center;
 }
 
 .place {
-margin: 0 12px;
+  margin: 0 12px;
+  display: flex;
+  flex-direction: column-reverse;
 }

@@ -1,0 +1,51 @@
+<div class="friends-page">
+  <div class="vertical-navbar">
+    <%= link_to library_games_path, class: "card-game-linked" do %>
+      <div class="navbar-icon-1"></div>
+    <% end %>
+
+    <%= link_to search_path, class: "nabar-link" do %>
+      <div class="navbar-icon-2"></div>
+    <% end %>
+
+    <%= link_to lent_path, class: "nabar-link" do %>
+      <div class="navbar-icon-3"></div>
+    <% end %>
+
+    <%= link_to friends_path, class: "nabar-link" do %>
+      <div class="navbar-icon-4 actives"></div>
+    <% end %>
+  </div>
+  <div class="friends-index m-2">
+    <div class="search-page">
+      <div class="search-title">
+        <%= image_tag("dice-search.png") %>
+        <h2>Friends</h2>
+        <%= image_tag("dice-search.png") %>
+      </div>
+    </div>
+
+    <h3>Your InfiniteGames Friends</h3>
+    <div class="friends_list d-flex m-2">
+      <% @friends.each do |friend| %>
+        <div class="friend d-flex flex-column justify-content-center align-items-center m-2">
+          <%= image_tag friend.avatar_url, class: "avatar-friends" %>
+          <%= friend.first_name %>
+        </div>
+      <% end %>
+      <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Friend</div>
+    </div>
+
+    <h3>Your Registered Guests</h3>
+    <div class="guests_list d-flex m-2">
+      <% @guests.each do |guest| %>
+        <div class="guest d-flex flex-column justify-content-center align-items-center m-2">
+        <div class="avatar-guests"><%= guest.name.first %></div>
+        <%= guest.name %>
+        </div>
+      <% end %>
+      <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Guest</div>
+    </div>
+
+  </div>
+</div>
