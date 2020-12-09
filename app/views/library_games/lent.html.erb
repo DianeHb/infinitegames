@@ -1,5 +1,5 @@
 
-<div class="index-page">
+<div class="lent-page">
   <div class="vertical-navbar">
     <%= link_to library_games_path, class: "card-game-linked" do %>
       <div class="navbar-icon-1"></div>
@@ -21,13 +21,13 @@
     <div class="search-page">
       <div class="search-title">
         <%= image_tag("dice-search.png") %>
-        <h2>The game library of <%= current_user.username %> </h2>
+        <h2 class="text-center">Lent Games</h2>
         <%= image_tag("dice-search.png") %>
       </div>
     </div>
 
     <div class="cards">
-      <% @games.each do |library_game| %>
+      <% @lent_games.each do |library_game| %>
         <%= link_to library_game_path(library_game), class: "card-game-linked" do %>
           <div class= "card">
             <% if library_game.borrowed == false %>
