@@ -16,16 +16,17 @@
       <div class="navbar-icon-4"></div>
     <% end %>
   </div>
-  <div class="friends-index">
+  <div class="friends-index m-2">
     <div class="search-page">
       <div class="search-title">
         <%= image_tag("dice-search.png") %>
-        <h2><%= current_user.username %>'s Friends</h2>
+        <h2>Friends</h2>
         <%= image_tag("dice-search.png") %>
       </div>
     </div>
 
-    <div class="friends_list d-flex">
+    <h3>Your InfiniteGames Friends</h3>
+    <div class="friends_list d-flex m-2">
       <% @friends.each do |friend| %>
         <div class="friend d-flex flex-column justify-content-center align-items-center m-2">
           <%= image_tag friend.avatar_url, class: "avatar-friends" %>
@@ -34,7 +35,8 @@
       <% end %>
     </div>
 
-    <div class="guests_list d-flex">
+    <h3>Your Registered Guests</h3>
+    <div class="guests_list d-flex m-2">
       <% @guests.each do |guest| %>
         <div class="guest d-flex flex-column justify-content-center align-items-center m-2">
         <div class="avatar-guests"><%= guest.name.first %></div>
