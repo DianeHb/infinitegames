@@ -46,6 +46,10 @@ class LibraryGamesController < ApplicationController
     end
   end
 
+  def lent
+    @lent_games = current_user.library_games.where("borrowed=true")
+  end
+
   private
 
   def game_params
