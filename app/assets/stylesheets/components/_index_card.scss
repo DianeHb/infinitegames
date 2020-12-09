@@ -1,7 +1,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-justify-content: center;
+  justify-content: center;
   grid-gap: 16px;
   padding: 0 70px;
   margin-bottom: 40px;
@@ -49,6 +49,7 @@ justify-content: center;
 .card-game-linked:hover{
   text-decoration: none !important;
   transform: scale(1.05);
+  transition: 0.8s;
 }
 
 .blob-left-games {
@@ -65,3 +66,7 @@ justify-content: center;
 
 // A voir plus tard pour le blob
 // "style="transform: rotate(<%= rand 360 %>deg); -ms-transform: rotate(<%= rand 360 %>deg);"
+
+.card-game-linked {
+  transition: 0.8s;
+}
