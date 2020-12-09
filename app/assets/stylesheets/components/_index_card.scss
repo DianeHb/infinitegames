@@ -11,7 +11,7 @@
   border-radius: 20px;
   display: block;
   position: relative;
-  width:300Px;
+  width:250Px;
   -webkit-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   -moz-box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
   box-shadow: -9px 17px 89px -47px rgba(0,0,0,0.71);
@@ -23,7 +23,7 @@
   background-image: asset-url('blob.svg');
   background-repeat: no-repeat;
   background-position: center;
-  height: 320px;
+  height: 290px;
   display: flex;
 }
 
@@ -69,4 +69,21 @@
 
 .card-game-linked {
   transition: 0.8s;
+}
+
+.card-infos {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-categories {
+
+}
+
+.home-categories p {
+font-size: 11px;
+width: 120px;
+margin-bottom: 15px;
+color: $orange;
+text-align: center;
 }
