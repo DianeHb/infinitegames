@@ -26,14 +26,16 @@
   background-position: center;
   height: 290px;
   display: flex;
+  margin-bottom: -10px;
 }
 
 .blob-grey{
   background-image: asset-url('blob_grey.svg');
   background-repeat: no-repeat;
   background-position: center;
-  height: 320px;
+  height: 310px;
   display: flex;
+  margin-bottom: -10px;
 }
 
 .image-card {
@@ -82,9 +84,9 @@
 }
 
 .home-categories p {
-font-size: 11px;
-width: 120px;
-margin-bottom: 15px;
-color: $orange;
-text-align: center;
+  font-size: 13px;
+  margin-top: -5px;
+  margin-bottom: 15px;
+  color: #FF7761;
+  text-align: center;
 }

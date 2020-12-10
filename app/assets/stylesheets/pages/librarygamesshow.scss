@@ -29,13 +29,17 @@ text-align: center;
 .statistics-picto {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
-  padding: 1em;
+  align-items: flex-start;
+  padding: 2em 1em;
 }
 
 .statistic-item {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  img {
+    margin: 0px;
+    width:100px;
+    object-fit: cover;
+  }
 }
 
 .statistic-title {

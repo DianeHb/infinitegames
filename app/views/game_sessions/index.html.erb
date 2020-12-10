@@ -20,7 +20,7 @@
 
   <div class="statistics-page-content mb-5">
     <%= link_to "Back", library_game_path(@library_game), class:"btn-secondary ml-3 mt-5" %>
-    <div class= "text-center mt-5 mb-5" >
+    <div class= "text-center mb-5" >
       <h1><%= @game.name %> Statistics  </h1>
     </div>
     <div class="library-games-podium">
@@ -64,31 +64,31 @@
         <div class="statistics-picto">
 
           <div class ="statistic-item">
-            <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <%= image_tag("Library_Games_Show/total-duration.png") %>
             <p class= "statistic_num"> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
             <p class="statistic-title mb-0" >Total duration of the game session</p>
           </div>
 
           <div class ="statistic-item">
-            <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <%= image_tag("Library_Games_Show/average-duration.png") %>
             <p class= "statistic_num"> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
             <p class="statistic-title mb-0">Average game session time</p>
           </div>
 
           <div class ="statistic-item">
-            <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <%= image_tag("Library_Games_Show/winner.png") %>
               <p class= "statistic_num"> <strong> <%= @victories_count %> </strong> </p>
             <p class="statistic-title mb-0" >Victories</p>
           </div>
 
           <div class ="statistic-item">
-            <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <%= image_tag("Library_Games_Show/game-sessions-month.png") %>
               <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
             <p class="statistic-title mb-0"> Games sessions in the month</p>
           </div>
 
           <div class ="statistic-item">
-            <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <%= image_tag("Library_Games_Show/game-sessions-year.png") %>
               <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
             <p class="statistic-title mb-0">Game sessions in the year</p>
           </div>

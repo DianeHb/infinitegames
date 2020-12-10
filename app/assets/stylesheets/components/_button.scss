@@ -24,11 +24,6 @@
   border:solid;
 }
 
-.btn-secondary:hover {
-  color: white;
-  background:$primary;
-  border: $light-primary solid,
-}
 
 .btn-secondary {
   font-family:'Nerko One';
@@ -40,4 +35,37 @@
   transition: background 0.3s ease;
   border:solid;
   box-shadow: 0 2px 0 rgba($color:$dark-primary, $alpha: 1.0);
+}
+
+
+.btn-secondary:hover {
+  color: white;
+  background:$primary;
+  border: $light-primary solid;
+  box-shadow: 0 0px 0 rgba($color:$dark-primary, $alpha: 1.0);
+  transition:.3s;
+  transform: translateY(2px);
+}
+
+a:focus {
+  outline: 0 !important;
+}
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color:inherit;
+}
+.btn-secondary:focus {
+  font-family:'Nerko One';
+  color:$primary;
+  background:white;
+  margin:3px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+  border:solid;
+  box-shadow: 0 0px 0 rgba($color:$dark-primary, $alpha: 1.0);
+  outline:0 !important;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0px 0px 0px rgba(255,255,255,0);
 }

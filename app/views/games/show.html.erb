@@ -21,7 +21,7 @@
       <h1 class="mt-3"><%= @game.name %></h1>
       <% if @game.mechanics != [] %>
         <p class="game_mec_details">
-        <strong>Mechanics: </strong>
+        <strong>Mechanics&nbsp;&nbsp; </strong>
           <% nb_mechanics = @game.mechanics.count < 3 ? @game.mechanics.count : 3 %>
           <% @game.mechanics.first(nb_mechanics - 1).each do |mechanic| %>
             <%= mechanic.name %> •
@@ -29,10 +29,9 @@
           <%= @game.mechanics[nb_mechanics - 1].name %>
         </p>
       <% end %>
-      <p><%= sanitize (game_short_description(@game)) %></p>
       <% if @game.categories != [] %>
         <p class="game_cat_details">
-        <strong>Categories: </strong>
+        <strong>Categories&nbsp;&nbsp; </strong>
           <% nb_categories = @game.categories.count < 3 ? @game.categories.count : 3 %>
           <% @game.categories.first(nb_categories - 1).each do |category| %>
             <%= category.name %> •
@@ -40,6 +39,8 @@
           <%= @game.categories[nb_categories - 1].name %>
         </p>
       <% end %>
+      <p class="game-desc"><%= sanitize (game_short_description(@game)) %></p>
+
       <% if user_signed_in? && current_user.library_games.where("game_id=#{@game.id}") != [] %>
         <em>You already have this game.</em>
       <% else %>
@@ -52,7 +53,7 @@
 <div class="game-infos-background">
   <div class="left_infos">
     <h2>Description</h2>
-    <%= sanitize @game.description %>
+    <p class="game-desc"><%= sanitize @game.description %></p>
   </div>
   <div class="right_infos">
     <h2>More information</h2>
