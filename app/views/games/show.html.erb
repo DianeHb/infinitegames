@@ -15,6 +15,7 @@
       <% end %>
       <div class="colored_info2"><i class="fas fa-user"></i> <%= "#{@game.min_age} YO +" %></div>
       <div class="colored_info3"><i class="far fa-clock"></i> <%= "#{@game.min_playtime}\' - #{@game.max_playtime}\'" %></div>
+      <a href="<%= @game.rules_url %>" target="_blank"><i class="fas fa-book-open fa-2x"></i>Show rules</a>
     </div>
     <div class="game_show_rating mt-3"><%= sanitize '<i class="fas fa-star text-info"></i>' * @game.rating_general %><%= sanitize '<i class="fas fa-star"></i>' * (5 - @game.rating_general) %> <%= @game.reviews.count %> reviews</div>
     <div>
