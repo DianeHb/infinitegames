@@ -48,23 +48,22 @@
               <img class="image-card align-center" src= <%= image_path game.image_url %> >
             </div>
             <div class="text-center">
-            <h3><%= game.name %></h3>
-              <div class="d-flex card-infos">
-                <div class="home-stars">
-                  <p><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
-                </div>
-                <div class="home-categories">
-                  <% if game.categories != [] %>
-                    <p class=game_cat_details">
-                      <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
-                      <% game.categories.first(nb_categories - 1).each do |category| %>
-                        <%= category.name %> •
-                      <% end %>
-                      <%= game.categories[nb_categories - 1].name %>
-                    </p>
-                  <% end %>
-                </div>
+              <div class="home-stars">
+                <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
               </div>
+              <h3><%= game.name %></h3>
+              <div class="home-categories">
+                <% if game.categories != [] %>
+                  <p>
+                    <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
+                    <% game.categories.first(nb_categories - 1).each do |category| %>
+                      <%= category.name %> •
+                    <% end %>
+                    <%= game.categories[nb_categories - 1].name %>
+                  </p>
+                <% end %>
+              </div>
+
             </div>
           </div>
           <% end %>
@@ -85,14 +84,13 @@
               <img class="image-card align-center" src= <%= image_path game.image_url %> >
             </div>
             <div class="text-center">
-            <h3><%= game.name %></h3>
-              <div class="d-flex card-infos">
-                <div class="home-stars">
-                  <p><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
-                </div>
+              <div class="home-stars">
+                <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
+              </div>
+              <h3><%= game.name %></h3>
                 <div class="home-categories">
                   <% if game.categories != [] %>
-                    <p class=game_cat_details">
+                    <p>
                       <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
                       <% game.categories.first(nb_categories - 1).each do |category| %>
                         <%= category.name %> •
@@ -101,7 +99,7 @@
                     </p>
                   <% end %>
                 </div>
-              </div>
+
             </div>
           </div>
           <% end %>
@@ -123,23 +121,23 @@
               <img class="image-card align-center" src= <%= image_path game.image_url %> >
             </div>
             <div class="text-center">
-            <h3><%= game.name %></h3>
-              <div class="d-flex card-infos">
-                <div class="home-stars">
-                  <p><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
-                </div>
-                <div class="home-categories">
-                  <% if game.categories != [] %>
-                    <p class=game_cat_details">
-                      <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
-                      <% game.categories.first(nb_categories - 1).each do |category| %>
-                        <%= category.name %> •
-                      <% end %>
-                      <%= game.categories[nb_categories - 1].name %>
-                    </p>
-                  <% end %>
-                </div>
+              <div class="home-stars">
+                <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
               </div>
+              <h3><%= game.name %></h3>
+              <div class="home-categories">
+                <% if game.categories != [] %>
+                  <p>
+                    <% nb_categories = game.categories.count < 2 ? game.categories.count : 2 %>
+                    <% game.categories.first(nb_categories - 1).each do |category| %>
+                      <%= category.name %> •
+                    <% end %>
+                    <%= game.categories[nb_categories - 1].name %>
+                  </p>
+                <% end %>
+              </div>
+
+
             </div>
           </div>
           <% end %>

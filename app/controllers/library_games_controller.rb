@@ -1,6 +1,7 @@
 class LibraryGamesController < ApplicationController
   def index
-    @games = current_user.library_games
+    @games = current_user.library_games.order(:game_id)
+    #Order by the name of the game
   end
 
   def create
