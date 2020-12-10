@@ -10,6 +10,12 @@ module ApplicationHelper
   end
 
   def game_short_description_library(game)
-    sanitize(@game.game.description)[0..500]+"..."
+    desc = game.game.description.scan(/<.*>.*<\/.*>/).first
+    if desc
+      desc = desc[0..500]+"..." if desc.length > 500
+    else
+      desc = game.game.description[0..500]+"..."
+    end
+    return desc
   end
 end

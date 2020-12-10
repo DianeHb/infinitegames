@@ -79,7 +79,7 @@
             </p>
           <% end %>
 
-          <p class="game-desc"><%= game_short_description_library(@game) %> <%= link_to  "See more", game_path(@game.game), class: "underline" %></p>
+          <p class="game-desc"><%= sanitize game_short_description_library(@game) %> <%= link_to  "See more", game_path(@game.game), class: "underline" %></p>
 
 
 
