@@ -31,6 +31,28 @@
   }
 }
 
+.blob_grey_show {
+  background-image: asset-url('Game_Show/blob_show_grey.svg');
+  background-position: bottom;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50em;
+  height: 36em;
+  left: -8em;
+  position: relative;
+  z-index: -1;
+  img {
+    mix-blend-mode: multiply;
+    max-width: 600px;
+    height: auto;
+    left: 10em;
+    position: relative;
+  }
+}
+
 .main_infos {
   width: 60%;
   margin: 2em;
@@ -196,4 +218,8 @@
   right: 0;
   margin-top: 550px;
 
+}
+
+.underline {
+  text-decoration: underline;
 }

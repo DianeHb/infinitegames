@@ -1,6 +1,9 @@
 .navbar {
   background-color:$light-blue;
   height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
 }
 .navbar-lewagon {
   justify-content: space-between;

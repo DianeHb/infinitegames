@@ -1,4 +1,8 @@
+<%= content_for(:meta) do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
 <div class="index-page">
+
   <div class="vertical-navbar">
       <%= link_to library_games_path, class: "card-game-linked" do %>
         <div class="navbar-icon-1"></div>
@@ -8,11 +12,11 @@
         <div class="navbar-icon-2"></div>
       <% end %>
 
-      <%= link_to search_path, class: "navbar-link" do %>
+      <%= link_to lent_library_games_path, class: "navbar-link" do %>
         <div class="navbar-icon-3"></div>
       <% end %>
 
-      <%= link_to search_path, class: "navbar-link" do %>
+      <%= link_to friends_path, class: "navbar-link" do %>
         <div class="navbar-icon-4"></div>
       <% end %>
   </div>
@@ -33,7 +37,11 @@
           <% end %>
         <% end %>
       </div>
-      <div class="blob_show"><%= image_tag @game.game.image_url %></div>
+        <% if @game.borrowed %>
+        <div class="blob_grey_show"><%= image_tag @game.game.image_url %></div>
+        <% else %>
+        <div class="blob_show"><%= image_tag @game.game.image_url %></div>
+        <% end %>
       <div class="main_infos">
         <div class="colored_infos">
           <% if @game.game.min_players == @game.game.max_players %>
@@ -43,10 +51,11 @@
           <% end %>
           <div class="colored_info2"><i class="fas fa-user"></i> <%= "#{@game.game.min_age} YO +" %></div>
           <div class="colored_info3"><i class="far fa-clock"></i> <%= "#{@game.game.min_playtime}\' - #{@game.game.max_playtime}\'" %></div>
+          <a href="<%= @game.game.rules_url %>" target="_blank"><i class="fas fa-book-open fa-2x"></i></a>
         </div>
         <div class="games_show_rating mt-3"><%= sanitize '<i class="fas fa-star text-info"></i>' * @game.game.rating_general %><%= sanitize '<i class="fas fa-star"></i>' * (5 - @game.game.rating_general) %> <%= @game.game.reviews.count %> reviews</div>
         <div>
-          <h1 class="mt-3"><%= @game.game.name %></h1>
+            <h1 class="mt-3"><%= @game.game.name %></h1>
           <p class="game_mec_details">
             <strong>Mechanics : </strong>
             <% nb_mechanics = @game.game.mechanics.count < 3 ? @game.game.mechanics.count : 3 %>
@@ -56,7 +65,7 @@
             <%= @game.game.mechanics[nb_mechanics - 1].name %>
           </p>
 
-          <p><%= game_short_description_library(@game) %></p>
+          <p><%= game_short_description_library(@game) %> <%= link_to  "See more", game_path(@game.game), class: "underline" %></p>
 
           <p class="game_cat_details">
             <strong>Categories : </strong>
@@ -68,33 +77,32 @@
           </p>
 
           <!-- Button trigger modal Game Session -->
-          <div><button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
-            ADD A GAME SESSION
-          </button></div>
-          <!-- Button trigger modal Lend Game -->
-          <div class="mt-3">
-            <% if @game.borrowed %>
-              <%= link_to "#{@game.borrower.first_name} has returned the game", retrieve_library_game_path(@game), method: :patch, class: "btn-secondary" %>
-            <% else %>
-              <button type="button " class="btn-secondary ml-1" data-toggle="modal" data-target="#gameLendModal">
-                LEND MY GAME
-              </button>
-            <% end %>
-          </div>
-          <div class="rules-link">
-          <a href="<%= @game.game.rules_url %>">I need the rules</a>
+          <div class="d-flex">
+            <button type="button" class="btn-primary" data-toggle="modal" data-target="#gameSessionModal">
+              ADD A GAME SESSION
+            </button>
+            <!-- Button trigger modal Lend Game -->
+            <div class="ml-3 d-flex align-items-center">
+              <% if @game.borrowed %>
+                <%= link_to "#{@game.borrower.first_name.upcase} HAS RETURNED THE GAME", retrieve_library_game_path(@game), method: :patch, class: "btn-secondary" %>
+              <% else %>
+                <button type="button " class="btn-secondary" data-toggle="modal" data-target="#gameLendModal">
+                  LEND MY GAME
+                </button>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="library-games-podium">
-      <h2 class="pt-4">Podium</h2>
+      <h2 class="pt-4 pb-4">Podium</h2>
         <div class="podium-place">
           <div class="place">
             <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
             <% if @top_player_2.player_type == "User"%>
-              <%= image_tag @top_player_2.player.avatar_url, class: "avatar podium-pic" %>
+              <%= image_tag @top_player_2.player.avatar_url, class: "avatar-large-podium podium-pic" %>
             <% else %>
               <div class= "avatar-guest-podium podium-pic" >
                 <%= @top_player_2.username[0].capitalize %>
@@ -104,7 +112,7 @@
           <div class="place">
             <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
               <% if @top_player_1.player_type == "User"%>
-                <%= image_tag @top_player_1.player.avatar_url, class: "avatar podium-pic" %>
+                <%= image_tag @top_player_1.player.avatar_url, class: "avatar-large-podium podium-pic" %>
               <% else %>
                 <div class= " avatar-guest-podium podium-pic" >
                   <%= @top_player_1.username[0].capitalize %>
@@ -114,7 +122,7 @@
           <div class="place">
             <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
             <% if @top_player_3.player_type == "User"%>
-                <%= image_tag @top_player_3.player.avatar_url, class: "avatar podium-pic" %>
+                <%= image_tag @top_player_3.player.avatar_url, class: "avatar-large-podium podium-pic" %>
             <% else %>
               <div class= " avatar-guest-podium podium-pic">
                   <%= @top_player_3.username[0].capitalize %>
@@ -167,8 +175,8 @@
     </div>
 
     <div class="library-games-stats">
-      <h2 class="pt-4 pb-4">My statistics</h2>
-      <div class="statistics">
+      <h2 class="pt-4 pb-2">My statistics</h2>
+        <div class="statistics">
           <div class="statistics-picto">
 
             <div class ="statistic-item">
@@ -197,12 +205,14 @@
 
             <div class ="statistic-item">
               <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-                <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
-                <p class="statistic-title mb-0"> Games sessions in the month</p>
+                <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
+                <p class="statistic-title mb-0"> Games sessions in the year</p>
             </div>
           </div>
         </div>
         <%= link_to "SEE ALL MY STATISTICS", library_game_game_sessions_path(@game), class: "btn-primary" %>
+    </div>
+
     <!-- Modal GameSession & GameSessionPlayers -->
         <div class="modal fade" id="gameSessionModal" tabindex="-1" role="dialog" aria-labelledby="gameSessionModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

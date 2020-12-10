@@ -1,133 +1,152 @@
-<div class= "text-center mt-5 mb-5" >
-<h1><%= @game.name %> Statistics  </h1>
-</div>
-<div>
-<div class="library-games-podium">
-  <h2 class="pt-4 pb-4">Podium</h2>
-    <div class="podium-place">
-      <div class="place">
-        <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-        <% if @top_player_2.player_type == "User"%>
-          <%= image_tag @top_player_2.player.avatar_url, class: "avatar podium-pic" %>
-        <% else %>
-          <div class= "avatar-guest-podium podium-pic" >
-            <%= @top_player_2.username[0].capitalize %>
-          </div>
-        <% end %>
-      </div>
-      <div class="place">
-        <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
-        <% if @top_player_1.player_type == "User"%>
-          <%= image_tag @top_player_1.player.avatar_url, class: "avatar podium-pic" %>
-        <% else %>
-          <div class= " avatar-guest-podium podium-pic" >
-            <%= @top_player_1.username[0].capitalize %>
-          </div>
-        <% end %>
-      </div>
-      <div class="place">
-        <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
-        <% if @top_player_3.player_type == "User"%>
-          <%= image_tag @top_player_3.player.avatar_url, class: "avatar podium-pic" %>
-        <% else %>
-          <div class= " avatar-guest-podium podium-pic">
-            <%= @top_player_3.username[0].capitalize %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<div class="statistics-page">
+
+  <div class="vertical-navbar">
+    <%= link_to library_games_path, class: "card-game-linked" do %>
+      <div class="navbar-icon-1"></div>
+    <% end %>
+
+    <%= link_to search_path, class: "navbar-link" do %>
+      <div class="navbar-icon-2"></div>
+    <% end %>
+
+    <%= link_to lent_library_games_path, class: "nabar-link" do %>
+      <div class="navbar-icon-3"></div>
+    <% end %>
+
+    <%= link_to friends_path, class: "navbar-link" do %>
+      <div class="navbar-icon-4"></div>
+    <% end %>
   </div>
-  <div class="library-games-stats">
-  <h2 class="pt-4 pb-4">My statistics</h2>
-    <div class="statistics">
-      <div class="statistics-picto">
 
-        <div class ="statistic-item">
-          <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-           <p class= "statistic_num"> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
-          <p class="statistic-title mb-0" >Total duration of the game session</p>
+  <div class="statistics-page-content mb-5">
+    <%= link_to "Back", library_game_path(@library_game), class:"btn-secondary ml-3 mt-5" %>
+    <div class= "text-center mt-5 mb-5" >
+      <h1><%= @game.name %> Statistics  </h1>
+    </div>
+    <div class="library-games-podium">
+      <h2 class="pt-4 pb-4">Podium</h2>
+      <div class="podium-place">
+        <div class="place">
+          <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+          <% if @top_player_2.player_type == "User"%>
+            <%= image_tag @top_player_2.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+          <% else %>
+            <div class= "avatar-guest-podium podium-pic" >
+              <%= @top_player_2.username[0].capitalize %>
+            </div>
+          <% end %>
         </div>
-
-        <div class ="statistic-item">
-          <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-          <p class= "statistic_num"> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
-          <p class="statistic-title mb-0">Average game session time</p>
+        <div class="place">
+          <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
+          <% if @top_player_1.player_type == "User"%>
+            <%= image_tag @top_player_1.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+          <% else %>
+            <div class= " avatar-guest-podium podium-pic" >
+              <%= @top_player_1.username[0].capitalize %>
+            </div>
+          <% end %>
         </div>
-
-        <div class ="statistic-item">
-          <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p class= "statistic_num"> <strong> <%= @victories_count %> </strong> </p>
-          <p class="statistic-title mb-0" >Victories</p>
-        </div>
-
-        <div class ="statistic-item">
-          <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
-          <p class="statistic-title mb-0"> Games sessions in the month</p>
-        </div>
-
-        <div class ="statistic-item">
-          <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-            <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
-          <p class="statistic-title mb-0">Game sessions in the year</p>
+        <div class="place">
+          <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
+          <% if @top_player_3.player_type == "User"%>
+            <%= image_tag @top_player_3.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+          <% else %>
+            <div class= " avatar-guest-podium podium-pic">
+              <%= @top_player_3.username[0].capitalize %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="library-games-stats">
+      <h2 class="pt-4 pb-2">My statistics</h2>
+      <div class="statistics">
+        <div class="statistics-picto">
 
+          <div class ="statistic-item">
+            <%= image_tag("Library_Games_Show/total-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <p class= "statistic_num"> <strong> <%= duration_in_words(@total_duration) %> </strong> </p>
+            <p class="statistic-title mb-0" >Total duration of the game session</p>
+          </div>
 
-<h1 class= "text-center mt-5 mb-5">History of my game sessions</h1>
+          <div class ="statistic-item">
+            <%= image_tag("Library_Games_Show/average-duration.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+            <p class= "statistic_num"> <strong> <%= duration_in_words(@average_duration) %> </strong> </p>
+            <p class="statistic-title mb-0">Average game session time</p>
+          </div>
 
+          <div class ="statistic-item">
+            <%= image_tag("Library_Games_Show/winner.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+              <p class= "statistic_num"> <strong> <%= @victories_count %> </strong> </p>
+            <p class="statistic-title mb-0" >Victories</p>
+          </div>
 
-<% @game_sessions.each do |game_session| %>
-<div class= "container mt-1">
-  <div class="stat-head" data-toggle="collapse" href="#collapseMyStatistics_<%= game_session.id%>" role="button" aria-expanded="true" aria-controls="collapseMyStatistics">
-    <div class="date">
-      <h5><%= game_session.date %></h5>
+          <div class ="statistic-item">
+            <%= image_tag("Library_Games_Show/game-sessions-month.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+              <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_month %> </strong> </p>
+            <p class="statistic-title mb-0"> Games sessions in the month</p>
+          </div>
+
+          <div class ="statistic-item">
+            <%= image_tag("Library_Games_Show/game-sessions-year.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
+              <p class= "statistic_num"> <strong> <%= @game_sessions__count_in_year %> </strong> </p>
+            <p class="statistic-title mb-0">Game sessions in the year</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class= "d-flex align-items-center ">
-    <i class="fas fa-users"></i>
 
-      <% winner_first_players(game_session.game_session_players).each do |game_session_player| %>
-        <div class="players">
-            <%= game_session_player.username %>
+    <div class="statistics-historic-presentation">
+      <h1 class= "text-center mt-5 mb-5">History of my game sessions</h1>
+
+      <% @game_sessions.each do |game_session| %>
+        <div class= "container mt-1">
+          <div class="stat-head" data-toggle="collapse" href="#collapseMyStatistics_<%= game_session.id%>" role="button" aria-expanded="true" aria-controls="collapseMyStatistics">
+            <div class="date">
+              <h5><%= game_session.date %></h5>
+            </div>
+            <div class= "d-flex align-items-center ">
+              <i class="fas fa-users"></i>
+
+              <% winner_first_players(game_session.game_session_players).each do |game_session_player| %>
+                <div class="players">
+                    <%= game_session_player.username %>
+                </div>
+              <% end %>
+            </div>
+            <div class="duration d-flex align-items-center">
+              <i class="far fa-clock"></i>
+              <h5 class = "m-0 ml-2"><%= game_session.duration %></h5>
+            </div>
+          </div>
+          <div class="game-session-players collapse" id="collapseMyStatistics_<%= game_session.id%>">
+            <div class="game-stats-container">
+              <% game_session.game_session_players.each do |game_session_player| %>
+                <div class="game-stat">
+                  <ul>
+                    <li>
+                      <div class="game-players row">
+                        <div class="player col-2 ">
+                          <% if game_session_player.winner == true %>
+                            <%= image_tag("Library_Games_Show/winner-icon.png") %>
+                          <% end %>
+                        </div>
+                        <div class="username col-2">
+                          <%= game_session_player.username  %>
+                        </div>
+                        <div class="score col-2">
+                          <%= game_session_player.score  %>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+              <p class= "comment col-6"><%= game_session.comment %></p>
+          </div>
         </div>
       <% end %>
     </div>
-    <div class="duration d-flex align-items-center">
-      <i class="far fa-clock"></i>
-      <h5 class = "m-0 ml-2"><%= game_session.duration %></h5>
-    </div>
   </div>
-  <div class="game-session-players collapse" id="collapseMyStatistics_<%= game_session.id%>">
-    <div class="game-stats-container">
-      <% game_session.game_session_players.each do |game_session_player| %>
-        <div class="game-stat">
-          <ul>
-            <li>
-              <div class="game-players row">
-                <div class="player col-2 ">
-                <% if game_session_player.winner == true %>
-                  <%= image_tag("Library_Games_Show/winner-icon.png") %>
-                  <% end %>
-                </div>
-                <div class="username col-2">
-                  <%= game_session_player.username  %>
-                </div>
-                <div class="score col-2">
-                  <%= game_session_player.score  %>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      <% end %>
-    </div>
-      <p class= "comment col-6"><%= game_session.comment %></p>
-  </div>
-</div>
-</div>
-<% end %>
-<div class= "container" style="width: 100px; height: 200px;" >
 </div>

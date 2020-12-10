@@ -8,7 +8,7 @@
       <div class="navbar-icon-2"></div>
     <% end %>
 
-    <%= link_to lent_path, class: "nabar-link" do %>
+    <%= link_to lent_library_games_path, class: "nabar-link" do %>
       <div class="navbar-icon-3"></div>
     <% end %>
 
@@ -16,7 +16,7 @@
       <div class="navbar-icon-4 actives"></div>
     <% end %>
   </div>
-  <div class="friends-index m-2">
+  <div class="friends-index m-2 w-100">
     <div class="search-page">
       <div class="search-title">
         <%= image_tag("dice-search.png") %>
@@ -24,27 +24,30 @@
         <%= image_tag("dice-search.png") %>
       </div>
     </div>
-
-    <h3>Your InfiniteGames Friends</h3>
-    <div class="friends_list d-flex m-2">
-      <% @friends.each do |friend| %>
-        <div class="friend d-flex flex-column justify-content-center align-items-center m-2">
-          <%= image_tag friend.avatar_url, class: "avatar-friends" %>
-          <%= friend.first_name %>
-        </div>
-      <% end %>
-      <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Friend</div>
+    <div class="friends_list_content ml-4 mb-5">
+      <h3>Your InfiniteGames Friends</h3>
+      <div class="friends_list d-flex m-2">
+        <% @friends.each do |friend| %>
+          <div class="friend d-flex flex-column justify-content-center align-items-center m-2">
+            <%= image_tag friend.avatar_url, class: "avatar-friends" %>
+            <%= friend.first_name %>
+          </div>
+        <% end %>
+        <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Friend</div>
+      </div>
     </div>
 
-    <h3>Your Registered Guests</h3>
-    <div class="guests_list d-flex m-2">
-      <% @guests.each do |guest| %>
-        <div class="guest d-flex flex-column justify-content-center align-items-center m-2">
-        <div class="avatar-guests"><%= guest.name.first %></div>
-        <%= guest.name %>
-        </div>
-      <% end %>
-      <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Guest</div>
+    <div class="guests-list-content ml-4 mb-5">
+      <h3>Your Registered Guests</h3>
+      <div class="guests_list d-flex m-2">
+        <% @guests.each do |guest| %>
+          <div class="guest d-flex flex-column justify-content-center align-items-center m-2">
+          <div class="avatar-guests"><%= guest.name.first %></div>
+          <%= guest.name %>
+          </div>
+        <% end %>
+        <div class="d-flex flex-column justify-content-center align-items-center m-2"><div class="avatar-new">+</div>Add Guest</div>
+      </div>
     </div>
 
   </div>
