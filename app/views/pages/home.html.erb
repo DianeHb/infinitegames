@@ -82,7 +82,7 @@
         </div>
         <div class="text-center">
           <div class="home-stars">
-            <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %> <%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
+            <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star fa-xs text-info""></i>' * game.rating_general %><%= sanitize '<i class="fas fa-star fa-xs"></i>' * (5 - game.rating_general) %> </p>
           </div>
           <h3><%= game.name %></h3>
           <div class="home-categories">

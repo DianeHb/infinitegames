@@ -41,7 +41,7 @@
             </div>
             <% end %>
             <div class="text-center">
-              <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star text-info"></i>' * library_game.game.rating_general %> <%= sanitize '<i class="fas fa-star"></i>' * (5 - library_game.game.rating_general) %> </p>
+              <p class="game_show_rating_card"><%= sanitize '<i class="fas fa-star text-info"></i>' * library_game.game.rating_general %><%= sanitize '<i class="fas fa-star"></i>' * (5 - library_game.game.rating_general) %> </p>
               <h3><%= library_game.game.name %></h3>
             </div>
           </div>
