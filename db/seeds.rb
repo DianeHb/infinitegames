@@ -275,7 +275,7 @@ p "Seeds for reviews done!"
 
 p "Seeds for Friends"
 
-friends_possibilities = (2..6)
+friends_possibilities = (2..4)
 users.each do |user|
   friends = user.friends
   n = rand(friends_possibilities)
@@ -298,7 +298,7 @@ p "Seeds for Guests"
 GUESTS_NAMES = ["Ophélie", "Caroline", "Lise", "Coralie", "Maxime", "Gabriel", "Pierre", "Martin", "Kévin", "Marc", "Stéphane", "Nicolas", "Olivier", "Mickaël", "Ludovic", "Yann", "David", "Emile", "Clara", "Jérémy", "Morgane", "Thibaut", "Fanny", "Ariane", "Julien", "Adrienne"]
 
 users.each do |user|
-  number_of_guests = rand(1..6)
+  number_of_guests = rand(4..8)
   users_guests = GUESTS_NAMES.sample(number_of_guests)
   users_guests.each do |guest|
     Guest.create!(

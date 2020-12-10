@@ -28,32 +28,38 @@
       <div class="podium-place">
         <div class="place">
           <%= image_tag("Library_Games_Show/second.png", style: "height:100px; margin-bottom:20px; margin-top:20px;") %>
-          <% if @top_player_2.player_type == "User"%>
-            <%= image_tag @top_player_2.player.avatar_url, class: "avatar-large-podium podium-pic" %>
-          <% else %>
-            <div class= "avatar-guest-podium podium-pic" >
-              <%= @top_player_2.username[0].capitalize %>
-            </div>
+          <% if @top_player_2 %>
+            <% if @top_player_2.player_type == "User"%>
+              <%= image_tag @top_player_2.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+            <% else %>
+              <div class= "avatar-guest-podium podium-pic" >
+                <%= @top_player_2.username[0].capitalize %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <div class="place">
           <%= image_tag("Library_Games_Show/first.png", style: "height:150px; margin-bottom:20px; margin-top:20px;") %>
-          <% if @top_player_1.player_type == "User"%>
-            <%= image_tag @top_player_1.player.avatar_url, class: "avatar-large-podium podium-pic" %>
-          <% else %>
-            <div class= " avatar-guest-podium podium-pic" >
-              <%= @top_player_1.username[0].capitalize %>
-            </div>
+          <% if @top_player_1 %>
+            <% if @top_player_1.player_type == "User"%>
+              <%= image_tag @top_player_1.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+            <% else %>
+              <div class= " avatar-guest-podium podium-pic" >
+                <%= @top_player_1.username[0].capitalize %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <div class="place">
           <%= image_tag("Library_Games_Show/third.png", style: "height:50px; margin-bottom:20px; margin-top:20px;") %>
-          <% if @top_player_3.player_type == "User"%>
-            <%= image_tag @top_player_3.player.avatar_url, class: "avatar-large-podium podium-pic" %>
-          <% else %>
-            <div class= " avatar-guest-podium podium-pic">
-              <%= @top_player_3.username[0].capitalize %>
-            </div>
+          <% if @top_player_3 %>
+            <% if @top_player_3.player_type == "User"%>
+              <%= image_tag @top_player_3.player.avatar_url, class: "avatar-large-podium podium-pic" %>
+            <% else %>
+              <div class= " avatar-guest-podium podium-pic">
+                <%= @top_player_3.username[0].capitalize %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
